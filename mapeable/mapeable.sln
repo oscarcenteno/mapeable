@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Mapeable", "Mapeable\Mapeable.vbproj", "{CC1CA7D2-2647-47C5-BBFA-F4836A4DED8F}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Mapeable.UnitTests", "Mapeable.UnitTests\Mapeable.UnitTests.vbproj", "{E3DFC503-5C0F-4599-AA96-4F2516F5B651}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CC1CA7D2-2647-47C5-BBFA-F4836A4DED8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC1CA7D2-2647-47C5-BBFA-F4836A4DED8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC1CA7D2-2647-47C5-BBFA-F4836A4DED8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC1CA7D2-2647-47C5-BBFA-F4836A4DED8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3DFC503-5C0F-4599-AA96-4F2516F5B651}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3DFC503-5C0F-4599-AA96-4F2516F5B651}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3DFC503-5C0F-4599-AA96-4F2516F5B651}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3DFC503-5C0F-4599-AA96-4F2516F5B651}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
