@@ -63,10 +63,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Busqueda\BuscadorDeMapeos.vb" />
+    <Compile Include="Comparador.vb" />
     <Compile Include="Mapeo\AplicadorDeMapeo.vb" />
     <Compile Include="Reflection\BuscadorDePropiedadesLegibles.vb" />
     <Compile Include="Busqueda\Propiedad.vb" />
-    <Compile Include="Mapeador.vb" />
+    <Compile Include="MapeadorBase.vb" />
     <Compile Include="Mapeo\MapeadorDePropiedades.vb" />
     <Compile Include="MapeoDePropiedad.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -85,6 +86,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Reflection\BuscadorDePropiedadesEscribibles.vb" />
+    <Compile Include="Reflection\BuscadorDePropiedadesPublicas.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">

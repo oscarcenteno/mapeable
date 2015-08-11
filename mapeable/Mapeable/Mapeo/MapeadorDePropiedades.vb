@@ -1,10 +1,10 @@
 ﻿Class MapeadorDePropiedades(Of ClaseOrigen, ClaseDestino)
 
-    Private mapeosPorAplicar As IList(Of MapeoDePropiedad(Of ClaseOrigen, ClaseDestino))
+    Private losMapeos As IList(Of MapeoDePropiedad(Of ClaseOrigen, ClaseDestino))
     Private elobjetoOrigen As ClaseOrigen
 
     Sub New()
-        mapeosPorAplicar = New List(Of MapeoDePropiedad(Of ClaseOrigen, ClaseDestino))
+        losMapeos = New List(Of MapeoDePropiedad(Of ClaseOrigen, ClaseDestino))
     End Sub
 
     Dim elObjetoDestino As ClaseDestino
@@ -22,7 +22,7 @@
         Dim elNuevoMapeo As New MapeoDePropiedad(Of ClaseOrigen, ClaseDestino)
         elNuevoMapeo.Origen = unaPropiedadEnElOrigen
         elNuevoMapeo.Destino = laPropiedadEnElDestino
-        mapeosPorAplicar.Add(elNuevoMapeo)
+        losMapeos.Add(elNuevoMapeo)
     End Sub
 
     Private Sub CreeElObjetoDestino()
@@ -33,7 +33,7 @@
         Dim elAplicador As New AplicadorDeMapeo(Of ClaseOrigen, ClaseDestino) _
             (elobjetoOrigen, elObjetoDestino)
 
-        For Each mapeo In mapeosPorAplicar
+        For Each mapeo In losMapeos
             elAplicador.ApliqueElMapeo(mapeo)
         Next
     End Sub

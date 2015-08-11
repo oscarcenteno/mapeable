@@ -3,78 +3,26 @@
 Public Class BuscadorDePropiedadesEscribibles
 
     Private elTipo As Type
-
     Public Sub New(elTipo As Type)
         Me.elTipo = elTipo
     End Sub
 
-    Private lasPropiedadesEscribibles As IList(Of Propiedad)
+    Private lasPropiedadesLegibles As IEnumerable(Of Propiedad)
     Public Function EncuentreLasPropiedadesEscribibles() As IEnumerable(Of Propiedad)
-        ObtengaLosMiembrosPublicosDeInstancia()
-        ListeLosQueSonPropiedades()
-        ListeLasPropiedadesEscribibles()
+        ListeLasPropiedades()
+        EncuentreLasEscribibles()
 
-        Return lasPropiedadesEscribibles
+        Return lasPropiedadesLegibles
     End Function
 
-    Dim miembrosPublicosDeInstancia() As MemberInfo
-    Private Sub ObtengaLosMiembrosPublicosDeInstancia()
-        miembrosPublicosDeInstancia = elTipo.GetMembers(Reflection.BindingFlags.Public _
-                                                        Or Reflection.BindingFlags.Instance)
+    Dim lasPropiedades As IEnumerable(Of Propiedad)
+    Private Sub ListeLasPropiedades()
+        Dim elBuscador As New BuscadorDePropiedadesPublicas(elTipo)
+        lasPropiedades = elBuscador.EncuentreLasPropiedadesPublicas()
     End Sub
 
-    Dim lasPropiedades As IList(Of PropertyInfo)
-    Private Sub ListeLosQueSonPropiedades()
-        InicialiceLaListaDePropiedades()
-        For Each miembro In miembrosPublicosDeInstancia
-            RegistreElMiembroSiEsUnaPropiedad(miembro)
-        Next
-    End Sub
-
-    Private Sub InicialiceLaListaDePropiedades()
-        lasPropiedades = New List(Of PropertyInfo)
-    End Sub
-
-    Private Sub ListeLasPropiedadesEscribibles()
-        InicialiceLaListaDeEscribibles()
-        For Each unaPropiedad In lasPropiedades
-            RegistreSiLaPropiedadEsEscribible(unaPropiedad)
-        Next
-    End Sub
-
-    Private Sub InicialiceLaListaDeEscribibles()
-        lasPropiedadesEscribibles = New List(Of Propiedad)
-    End Sub
-
-    Private Sub RegistreSiLaPropiedadEsEscribible(unaPropiedad As PropertyInfo)
-        If LaPropiedadEsEscribible(unaPropiedad) Then
-            RegistreComoUnaPropiedadEscribible(unaPropiedad)
-        End If
-    End Sub
-
-    Private Function LaPropiedadEsEscribible(unaPropiedad As PropertyInfo) As Boolean
-        Return unaPropiedad.CanWrite
-    End Function
-
-    Private Sub RegistreComoUnaPropiedadEscribible(unaPropiedad As PropertyInfo)
-        Dim nuevaPropiedad As New Propiedad
-        nuevaPropiedad.Nombre = unaPropiedad.Name
-        nuevaPropiedad.Tipo = unaPropiedad.PropertyType.Name
-        lasPropiedadesEscribibles.Add(nuevaPropiedad)
-    End Sub
-
-    Private Sub RegistreElMiembroSiEsUnaPropiedad(miembro As MemberInfo)
-        If ElMiembroEsUnaPropiedad(miembro) Then
-            RegistreComoUnaPropiedad(miembro)
-        End If
-    End Sub
-
-    Private Function ElMiembroEsUnaPropiedad(miembro As MemberInfo) As Boolean
-        Return miembro.MemberType = MemberTypes.Property
-    End Function
-
-    Private Sub RegistreComoUnaPropiedad(miembro As MemberInfo)
-        lasPropiedades.Add(miembro)
+    Private Sub EncuentreLasEscribibles()
+        lasPropiedadesLegibles = lasPropiedades.Where(Function(c) c.SePuedeLeer)
     End Sub
 
 End Class

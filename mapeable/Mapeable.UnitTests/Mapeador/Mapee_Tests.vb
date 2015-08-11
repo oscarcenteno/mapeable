@@ -1,9 +1,9 @@
 ﻿Imports System.Text
 Imports Microsoft.VisualStudio.TestTools.UnitTesting
 
-<TestClass()> Public Class New_Tests
+<TestClass()> Public Class Mapee_Tests
 
-    Dim elMapeador As Mapeador(Of Producto, ProductoDto)
+    Dim elMapeador As MapeadorBase(Of Producto, ProductoDto)
     Dim elResultadoEsperado As ProductoDto
     Dim origen As Producto
 
@@ -21,7 +21,7 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
     End Sub
 
     Private Sub InicialiceElMapeador()
-        elMapeador = New Mapeador(Of Producto, ProductoDto)
+        elMapeador = New MapeadorBase(Of Producto, ProductoDto)
     End Sub
 
     Private Sub InicialiceElOrigen()
@@ -39,9 +39,6 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
         Assert.AreEqual(elResultadoEsperado, elResultadoObtenido)
     End Sub
 
-    <TestMethod()> Public Sub New_AmbosSonObjects_UnNuevoObjeto()
-    End Sub
-
 End Class
 
 Class Producto
@@ -49,6 +46,7 @@ Class Producto
     Public Property Nombre As String
     Public Property Fecha As Date
     Public Property IdProveedor As Integer
+    Public Property ElProveedor As Proveedor
 
 End Class
 
@@ -66,13 +64,15 @@ Class ProductoDto
     Public Property Fecha As Date
     Public Property NombreDelProveedor As String
 
-    Public Overloads Function Equals(elOtro As ProductoDto) As Boolean Implements IEquatable(Of ProductoDto).Equals
+    Public Overloads Function Equals(elOtro As ProductoDto) As Boolean _
+        Implements IEquatable(Of ProductoDto).Equals
         Dim sonIguales As Boolean
 
         sonIguales = Integer.Equals(Me.Id, elOtro.Id)
         sonIguales = sonIguales And String.Equals(Me.Nombre, elOtro.Nombre)
         sonIguales = sonIguales And Date.Equals(Me.Fecha, elOtro.Fecha)
-        sonIguales = sonIguales And String.Equals(Me.NombreDelProveedor, elOtro.NombreDelProveedor)
+        sonIguales = sonIguales And String.Equals(Me.NombreDelProveedor,
+                                                  elOtro.NombreDelProveedor)
 
         Return sonIguales
     End Function
