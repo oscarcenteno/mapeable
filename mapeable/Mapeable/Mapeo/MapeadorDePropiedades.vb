@@ -30,9 +30,11 @@
     End Sub
 
     Private Sub MapeeCadaPropiedad()
-        Dim elMapeadorPorPropiedad As New AsignadorDePropiedades(elobjetoOrigen, elObjetoDestino)
+        Dim elMapeadorPorPropiedad As New AsignadorDePropiedades(elobjetoOrigen,
+                                                                 elObjetoDestino)
         For Each mapeo In losMapeos
-            elMapeadorPorPropiedad.MapeeDelOrigenAlDestino(mapeo.Origen.Nombre, mapeo.Destino.Nombre)
+            elMapeadorPorPropiedad.MapeeDelOrigenAlDestino(mapeo.Origen.Nombre,
+                                                           mapeo.Destino.Nombre)
         Next
     End Sub
 
