@@ -9,14 +9,14 @@ Public Class BuscadorDePropiedadesEscribibles
 
     Private lasPropiedadesLegibles As IEnumerable(Of Propiedad)
     Public Function EncuentreLasPropiedadesEscribibles() As IEnumerable(Of Propiedad)
-        ListeLasPropiedades()
+        ListeLasPropiedadesPublicas()
         EncuentreLasEscribibles()
 
         Return lasPropiedadesLegibles
     End Function
 
     Dim lasPropiedades As IEnumerable(Of Propiedad)
-    Private Sub ListeLasPropiedades()
+    Private Sub ListeLasPropiedadesPublicas()
         Dim elBuscador As New BuscadorDePropiedadesPublicas(elTipo)
         lasPropiedades = elBuscador.EncuentreLasPropiedadesPublicas()
     End Sub

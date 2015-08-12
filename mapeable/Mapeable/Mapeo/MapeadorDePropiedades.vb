@@ -12,7 +12,7 @@
         Me.elobjetoOrigen = elobjetoOrigen
 
         CreeElObjetoDestino()
-        MapeeCadaPropiedadAlDestino()
+        MapeeCadaPropiedad()
 
         Return elObjetoDestino
     End Function
@@ -29,12 +29,10 @@
         elObjetoDestino = Activator.CreateInstance(Of ClaseDestino)()
     End Sub
 
-    Private Sub MapeeCadaPropiedadAlDestino()
-        Dim elAplicador As New AplicadorDeMapeo(Of ClaseOrigen, ClaseDestino) _
-            (elobjetoOrigen, elObjetoDestino)
-
+    Private Sub MapeeCadaPropiedad()
+        Dim elMapeadorPorPropiedad As New AsignadorDePropiedades(elobjetoOrigen, elObjetoDestino)
         For Each mapeo In losMapeos
-            elAplicador.ApliqueElMapeo(mapeo)
+            elMapeadorPorPropiedad.MapeeDelOrigenAlDestino(mapeo.Origen.Nombre, mapeo.Destino.Nombre)
         Next
     End Sub
 

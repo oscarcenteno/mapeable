@@ -22,6 +22,14 @@
         Assert.AreEqual(elResultadoEsperado, elResultadoObtenido)
     End Sub
 
+    <TestMethod()> Public Sub EsIgualQue_LosTiposSonDireferentes_No()
+        elResultadoEsperado = False
+        elResultadoObtenido = unProducto.EsIgualQue(unProveedor)
+
+        Assert.AreEqual(elResultadoEsperado, elResultadoObtenido)
+    End Sub
+
+
     <TestMethod()> Public Sub EsIgualQue_ElOtroObjetoEsNulo_No()
         elResultadoEsperado = False
         elOtroProducto = Nothing

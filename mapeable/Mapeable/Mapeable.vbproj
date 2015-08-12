@@ -62,17 +62,17 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Busqueda\BuscadorDeMapeos.vb" />
+    <Compile Include="Mapeo\BuscadorDeMapeos.vb" />
     <Compile Include="Comparador\ComparadorBase.vb" />
     <Compile Include="Comparador\ComparadorDePropiedades.vb" />
     <Compile Include="Comparador\ComparadorDeUnaPropiedad.vb" />
     <Compile Include="Comparador\Extensiones.vb" />
-    <Compile Include="Mapeo\AplicadorDeMapeo.vb" />
+    <Compile Include="Reflection\AsignadorDePropiedades.vb" />
     <Compile Include="Reflection\BuscadorDePropiedadesLegibles.vb" />
-    <Compile Include="Busqueda\Propiedad.vb" />
-    <Compile Include="MapeadorBase.vb" />
+    <Compile Include="Reflection\Propiedad.vb" />
+    <Compile Include="Mapeo\MapeadorBase.vb" />
     <Compile Include="Mapeo\MapeadorDePropiedades.vb" />
-    <Compile Include="MapeoDePropiedad.vb" />
+    <Compile Include="Mapeo\MapeoDePropiedad.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>

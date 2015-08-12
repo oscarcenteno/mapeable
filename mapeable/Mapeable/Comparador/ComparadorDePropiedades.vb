@@ -13,6 +13,7 @@
 
     Function DetermineSiEsIgualQue(otroObjeto As Object) As Boolean
         Me.otroObjeto = otroObjeto
+
         CompareTodasLasPropiedades()
 
         Return sonIguales
@@ -26,10 +27,11 @@
 
     Private Sub CompareTodasLasPropiedades()
         Dim elComparador As New ComparadorDeUnaPropiedad(esteObjeto, otroObjeto)
-        Dim lasPropiedadesSonIguales As Boolean = True
-        Dim laPropiedadEsIgual As Boolean
+        Dim lasPropiedadesSonIguales As Boolean
+        lasPropiedadesSonIguales = True
 
         For Each unaPropiedad In lasPropiedades
+            Dim laPropiedadEsIgual As Boolean
             laPropiedadEsIgual = elComparador.LaPropiedadEsIgual(unaPropiedad)
             lasPropiedadesSonIguales = lasPropiedadesSonIguales And laPropiedadEsIgual
         Next
