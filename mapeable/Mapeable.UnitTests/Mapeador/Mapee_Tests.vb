@@ -4,6 +4,7 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
 <TestClass()> Public Class Mapee_Tests
 
     Dim elMapeador As MapeadorBase(Of Producto, ProductoDto)
+    Dim elResultadoObtenido As ProductoDto
     Dim elResultadoEsperado As ProductoDto
     Dim origen As Producto
 
@@ -33,60 +34,14 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
 
     <TestMethod()> Public Sub New_PropiedadesUnoAUno_DestinoEsperado()
 
-        Dim elResultadoObtenido As ProductoDto
         elResultadoObtenido = elMapeador.Mapee(origen)
 
-        Assert.AreEqual(elResultadoEsperado, elResultadoObtenido)
+        Assert.IsTrue(elResultadoEsperado.EsIgualQue(elResultadoObtenido))
     End Sub
 
 End Class
 
-Class Producto
-    Public Property Id As Integer
-    Public Property Nombre As String
-    Public Property Fecha As Date
-    Public Property IdProveedor As Integer
-    Public Property ElProveedor As Proveedor
 
-End Class
 
-Class Proveedor
-    Public Property Id As Integer
-    Public Property Nombre As String
-    Public Property Direccion As String
 
-End Class
 
-Class ProductoDto
-    Implements IEquatable(Of ProductoDto)
-    Public Property Id As Integer
-    Public Property Nombre As String
-    Public Property Fecha As Date
-    Public Property NombreDelProveedor As String
-
-    Public Overloads Function Equals(elOtro As ProductoDto) As Boolean _
-        Implements IEquatable(Of ProductoDto).Equals
-        Dim sonIguales As Boolean
-
-        sonIguales = Integer.Equals(Me.Id, elOtro.Id)
-        sonIguales = sonIguales And String.Equals(Me.Nombre, elOtro.Nombre)
-        sonIguales = sonIguales And Date.Equals(Me.Fecha, elOtro.Fecha)
-        sonIguales = sonIguales And String.Equals(Me.NombreDelProveedor,
-                                                  elOtro.NombreDelProveedor)
-
-        Return sonIguales
-    End Function
-
-    Public Overloads Overrides Function Equals(obj As Object) As Boolean
-
-        If obj Is Nothing OrElse Not Me.GetType() Is obj.GetType() Then
-            Return False
-        End If
-
-        Dim otroDestino As ProductoDto
-        otroDestino = obj
-
-        Return Me.Equals(otroDestino)
-    End Function
-
-End Class
