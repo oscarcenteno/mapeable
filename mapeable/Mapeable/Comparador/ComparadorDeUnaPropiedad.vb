@@ -25,7 +25,8 @@ Public Class ComparadorDeUnaPropiedad
     Dim losAtributos As BindingFlags = BindingFlags.Instance Or BindingFlags.Public
     Private Sub ObtengaLaPropiedadQueSeComparara(unaPropiedad As Propiedad)
         Dim elTipoDelOrigen As Type = esteObjeto.GetType()
-        laPropiedadOrigen = elTipoDelOrigen.GetProperty(unaPropiedad.Nombre, losAtributos)
+        laPropiedadOrigen = elTipoDelOrigen.GetProperty(unaPropiedad.Nombre,
+                                                        losAtributos)
     End Sub
 
     Dim elValor As Object
