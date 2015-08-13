@@ -15,6 +15,7 @@
 
         CreeElObjetoDestino()
         MapeeCadaPropiedad()
+        MapeeCadaPropiedadPersonalizada()
 
         Return elObjetoDestino
     End Function
@@ -42,6 +43,13 @@
 
     Sub RegistreUnMapeoPersonalizado(elMapeo As MapeoPersonalizado)
         losMapeosPersonalizados.Add(elMapeo)
+    End Sub
+
+    Private Sub MapeeCadaPropiedadPersonalizada()
+        For Each elMapeo In losMapeosPersonalizados
+            Dim c As New ContextoDeUnaPropiedad(elobjetoOrigen, elMapeo)
+            c.AsigneA(elObjetoDestino)
+        Next
     End Sub
 
 End Class

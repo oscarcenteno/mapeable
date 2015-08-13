@@ -18,7 +18,6 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
 
     Private Sub InicialiceElEsperado()
         elResultadoEsperado = New ProductoDto
-        elResultadoEsperado.Id = 99
         elResultadoEsperado.Nombre = "El Producto"
         elResultadoEsperado.Fecha = New Date(2015, 12, 12)
     End Sub
@@ -29,23 +28,11 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
 
     Private Sub InicialiceElOrigen()
         origen = New Producto
-        origen.Id = 99
         origen.Nombre = "El Producto"
         origen.Fecha = New Date(2015, 12, 12)
     End Sub
 
     <TestMethod()> Public Sub Mapee_PropiedadesUnoAUno_DestinoEsperado()
-
-        elResultadoObtenido = elMapeador.Mapee(origen)
-
-        Assert.IsTrue(elResultadoEsperado.EsIgualQue(elResultadoObtenido))
-    End Sub
-
-    <TestMethod()> Public Sub Mapee_PropiedadesPersonalizadas_DestinoEsperado()
-        elResultadoEsperado.NombreDelProveedor = "El Proveedor"
-
-        origen.ElProveedor = elProveedor
-        elMapeador = New MapeadorDeProductos
         elResultadoObtenido = elMapeador.Mapee(origen)
 
         Assert.IsTrue(elResultadoEsperado.EsIgualQue(elResultadoObtenido))

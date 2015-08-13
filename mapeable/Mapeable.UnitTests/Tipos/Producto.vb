@@ -1,5 +1,5 @@
 ﻿Class Producto
-    Public Property Id As Integer
+    Public Property IdProducto As Integer
     Public Property Nombre As String
     Public Property Fecha As Date
     Public Property IdProveedor As Integer

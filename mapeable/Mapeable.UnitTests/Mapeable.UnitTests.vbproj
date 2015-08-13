@@ -83,11 +83,13 @@
     <Compile Include="Comparador\EsIgualQueLaColeccion_Tests.vb" />
     <Compile Include="Comparador\EsIgualQue_Tests.vb" />
     <Compile Include="MapeadorDeColecciones\MapeeLaColeccion_Tests.vb" />
-    <Compile Include="Mapeador\Un mapeador con propiedades personalizadas\MapeadorDeProductos.vb" />
+    <Compile Include="Mapeador personalizado\MapeadorDeProductos.vb" />
+    <Compile Include="Mapeador personalizado\Personalizado_Mapee_Tests.vb" />
+    <Compile Include="Tipos\Casa.vb" />
     <Compile Include="Tipos\ProductoDto.vb" />
     <Compile Include="Tipos\Proveedor.vb" />
     <Compile Include="Tipos\Producto.vb" />
-    <Compile Include="Mapeador\Mapee_Tests.vb" />
+    <Compile Include="MapeadorBase\Mapee_Tests.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>

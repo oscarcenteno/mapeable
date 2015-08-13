@@ -76,7 +76,7 @@
     <TestMethod()> Public Sub EsIgualQueLaColeccion_UnObjetoEsDiferente_No()
         elResultadoEsperado = False
         unosProductos.Add(New Producto)
-        otrosProductos.Add(New Producto With {.Id = 9900})
+        otrosProductos.Add(New Producto With {.IdProducto = 9900})
         elResultadoObtenido = unosProductos.EsIgualQueLaColeccion(otrosProductos)
 
         Assert.AreEqual(elResultadoEsperado, elResultadoObtenido)
@@ -85,7 +85,7 @@
 
     Private Sub InicialiceUnProducto(id As Integer)
         Dim unProducto As New Producto
-        unProducto.Id = id
+        unProducto.IdProducto = id
         unProducto.Nombre = "El Nombre"
         unProducto.Fecha = New Date(2015, 9, 30)
         unProducto.Precio = 10.5789
@@ -94,7 +94,7 @@
 
     Private Sub InicialiceOtroProducto(id As Integer)
         Dim unProducto As New Producto
-        unProducto.Id = id
+        unProducto.IdProducto = id
         unProducto.Nombre = "El Nombre"
         unProducto.Fecha = New Date(2015, 9, 30)
         unProducto.Precio = 10.5789
@@ -111,7 +111,7 @@
 
     Private Sub InicialiceElOtroProducto()
         Dim unProducto As New Producto
-        unProducto.Id = 600
+        unProducto.IdProducto = 600
         unProducto.Nombre = "Otro Nombre"
         unProducto.Fecha = New Date(2016, 9, 30)
         unProducto.Precio = 11.1111

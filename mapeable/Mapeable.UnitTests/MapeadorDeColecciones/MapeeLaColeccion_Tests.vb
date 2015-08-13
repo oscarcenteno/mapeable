@@ -64,27 +64,21 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
 
     Private Sub CreeLosProductos()
         losProductos = New List(Of Producto)
-        losProductos.Add(New Producto With {.Id = 99, .IdProveedor = 9,
-                                            .Nombre = "N9",
+        losProductos.Add(New Producto With {.Nombre = "N9",
                                             .Fecha = New Date(2019, 9, 9)})
-        losProductos.Add(New Producto With {.Id = 88, .IdProveedor = 8,
-                                            .Nombre = "N8",
+        losProductos.Add(New Producto With {.Nombre = "N8",
                                             .Fecha = New Date(2018, 8, 8)})
-        losProductos.Add(New Producto With {.Id = 77, .IdProveedor = 7,
-                                            .Nombre = "N7",
+        losProductos.Add(New Producto With {.Nombre = "N7",
                                             .Fecha = New Date(2017, 7, 7)})
     End Sub
 
     Private Sub CreeLosEsperados()
         losEsperados = New List(Of ProductoDto)
-        losEsperados.Add(New ProductoDto With {.Id = 99,
-                                               .Nombre = "N9",
+        losEsperados.Add(New ProductoDto With {.Nombre = "N9",
                                                .Fecha = New Date(2019, 9, 9)})
-        losEsperados.Add(New ProductoDto With {.Id = 88,
-                                               .Nombre = "N8",
+        losEsperados.Add(New ProductoDto With {.Nombre = "N8",
                                                .Fecha = New Date(2018, 8, 8)})
-        losEsperados.Add(New ProductoDto With {.Id = 77,
-                                               .Nombre = "N7",
+        losEsperados.Add(New ProductoDto With {.Nombre = "N7",
                                                .Fecha = New Date(2017, 7, 7)})
     End Sub
 

@@ -1,0 +1,4 @@
+﻿
+Class Casa
+
+End Class

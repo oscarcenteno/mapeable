@@ -92,7 +92,7 @@
 
     Private Sub InicialiceUnProducto()
         unProducto = New Producto
-        unProducto.Id = 99
+        unProducto.IdProducto = 99
         unProducto.Nombre = "El Nombre"
         unProducto.Fecha = New Date(2015, 9, 30)
         unProducto.Precio = 10.5789
@@ -107,7 +107,7 @@
 
     Private Sub InicialiceElOtroProducto()
         elOtroProducto = New Producto
-        elOtroProducto.Id = 99
+        elOtroProducto.IdProducto = 99
         elOtroProducto.Nombre = "El Nombre"
         elOtroProducto.Fecha = New Date(2015, 9, 30)
         elOtroProducto.Precio = 10.5789
