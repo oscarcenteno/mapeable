@@ -2,9 +2,7 @@
 
     Public Property Nombre As String
     Public Property Tipo As String
-
     Property SePuedeEscribir As Boolean
-
     Property SePuedeLeer As Boolean
 
     Public Function EsIgualQue(otra As Propiedad) As Boolean
