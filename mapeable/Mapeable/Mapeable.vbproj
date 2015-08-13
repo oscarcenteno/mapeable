@@ -68,7 +68,11 @@
     <Compile Include="Comparador\ComparadorDePropiedades.vb" />
     <Compile Include="Comparador\ComparadorDeUnaPropiedad.vb" />
     <Compile Include="Comparador\Extensiones.vb" />
+    <Compile Include="Mapeo\ConfiguradorDeMapeoPersonalizado.vb" />
+    <Compile Include="Mapeo\ContextoDeUnaPropiedad.vb" />
+    <Compile Include="Mapeo\Extensiones.vb" />
     <Compile Include="Mapeo\MapeadorDeColecciones.vb" />
+    <Compile Include="Mapeo\MapeoPersonalizado.vb" />
     <Compile Include="Reflection\AsignadorDePropiedades.vb" />
     <Compile Include="Reflection\BuscadorDePropiedadesLegibles.vb" />
     <Compile Include="Reflection\Propiedad.vb" />

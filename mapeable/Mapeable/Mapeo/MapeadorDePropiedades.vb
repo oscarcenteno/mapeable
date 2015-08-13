@@ -1,10 +1,12 @@
 ﻿Friend Class MapeadorDePropiedades(Of ClaseOrigen, ClaseDestino)
 
     Private losMapeos As IList(Of MapeoDePropiedad(Of ClaseOrigen, ClaseDestino))
+    Private losMapeosPersonalizados As IList(Of MapeoPersonalizado)
     Private elobjetoOrigen As ClaseOrigen
 
     Sub New()
         losMapeos = New List(Of MapeoDePropiedad(Of ClaseOrigen, ClaseDestino))
+        losMapeosPersonalizados = New List(Of MapeoPersonalizado)
     End Sub
 
     Dim elObjetoDestino As ClaseDestino
@@ -36,6 +38,10 @@
             elMapeadorPorPropiedad.MapeeDelOrigenAlDestino(mapeo.Origen.Nombre,
                                                            mapeo.Destino.Nombre)
         Next
+    End Sub
+
+    Sub RegistreUnMapeoPersonalizado(elMapeo As MapeoPersonalizado)
+        losMapeosPersonalizados.Add(elMapeo)
     End Sub
 
 End Class

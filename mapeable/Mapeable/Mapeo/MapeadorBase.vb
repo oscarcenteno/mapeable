@@ -8,12 +8,19 @@ Public Class MapeadorBase(Of ClaseOrigen, ClaseDestino)
         EncuentreLosMapeosDePropiedadesPublicasEntreLasClases()
     End Sub
 
-    Protected Function MapeeLaPropiedadAOtra(Of TipoDeLaPropiedad) _
-        (propiedadOrigen As Expression(Of Func(Of ClaseOrigen, TipoDeLaPropiedad)),
-         propiedadDestino As Expression(Of Func(Of ClaseDestino, TipoDeLaPropiedad))) _
-     As MapeoDePropiedad(Of ClaseOrigen, ClaseDestino)
+    Protected Function LaPropiedad(Of TipoDeLaPropiedad) _
+        (laPropiedadOrigen As Expression(Of Func(Of ClaseOrigen, TipoDeLaPropiedad))) _
+        As ConfiguradorDeMapeoPersonalizado(Of ClaseDestino, TipoDeLaPropiedad)
 
-        Throw New NotImplementedException
+        Dim elMapeo As MapeoPersonalizado
+        elMapeo = MapeoPersonalizado.Cree(laPropiedadOrigen)
+        elMapeador.RegistreUnMapeoPersonalizado(elMapeo)
+
+        Dim elConfigurador As ConfiguradorDeMapeoPersonalizado(Of ClaseDestino, 
+                                                               TipoDeLaPropiedad)
+        elConfigurador = New ConfiguradorDeMapeoPersonalizado(Of ClaseDestino, 
+                                                              TipoDeLaPropiedad)(elMapeo)
+        Return elConfigurador
     End Function
 
     Public Function Mapee(objetoDeClaseOrigen As ClaseOrigen) As ClaseDestino
