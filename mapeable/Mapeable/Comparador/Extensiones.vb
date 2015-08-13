@@ -13,4 +13,16 @@ Public Module Extensiones
 
     End Function
 
+    <Extension>
+    Public Function EsIgualQueLaColeccion(estaColeccion As IEnumerable(Of Object),
+                               otraColeccion As IEnumerable(Of Object)) As Boolean
+
+        Dim elComparador As New ComparadorBaseDeColecciones()
+        Dim sonIguales As Boolean
+        sonIguales = elComparador.EsIgualQueLaColeccion(estaColeccion, otraColeccion)
+
+        Return sonIguales
+
+    End Function
+
 End Module

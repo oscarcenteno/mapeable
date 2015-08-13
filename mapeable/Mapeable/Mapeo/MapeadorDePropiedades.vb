@@ -1,4 +1,4 @@
-﻿Class MapeadorDePropiedades(Of ClaseOrigen, ClaseDestino)
+﻿Friend Class MapeadorDePropiedades(Of ClaseOrigen, ClaseDestino)
 
     Private losMapeos As IList(Of MapeoDePropiedad(Of ClaseOrigen, ClaseDestino))
     Private elobjetoOrigen As ClaseOrigen
@@ -8,8 +8,8 @@
     End Sub
 
     Dim elObjetoDestino As ClaseDestino
-    Function Mapee(elobjetoOrigen As ClaseOrigen) As ClaseDestino
-        Me.elobjetoOrigen = elobjetoOrigen
+    Function Mapee(eOobjetoOrigen As ClaseOrigen) As ClaseDestino
+        Me.elobjetoOrigen = eOobjetoOrigen
 
         CreeElObjetoDestino()
         MapeeCadaPropiedad()

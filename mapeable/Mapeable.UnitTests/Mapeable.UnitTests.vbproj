@@ -80,7 +80,9 @@
     <Import Include="Microsoft.VisualStudio.TestTools.UnitTesting" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Comparador\EsIgualQueLaColeccion_Tests.vb" />
     <Compile Include="Comparador\EsIgualQue_Tests.vb" />
+    <Compile Include="MapeadorDeColecciones\MapeeLaColeccion_Tests.vb" />
     <Compile Include="Tipos\ProductoDto.vb" />
     <Compile Include="Tipos\Proveedor.vb" />
     <Compile Include="Tipos\Producto.vb" />

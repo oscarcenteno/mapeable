@@ -71,4 +71,6 @@ Class ComparadorBase
         sonIguales = elComparador.DetermineSiEsIgualQue(elOtroObjeto)
     End Sub
 
+    
+
 End Class
