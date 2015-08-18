@@ -9,6 +9,18 @@
         losMapeosPersonalizados = New List(Of MapeoPersonalizado)
     End Sub
 
+    Sub RegistreUnNuevoMapeo(unaPropiedadEnElOrigen As Propiedad,
+                             laPropiedadEnElDestino As Propiedad)
+        Dim elNuevoMapeo As New MapeoDePropiedad(Of ClaseOrigen, ClaseDestino)
+        elNuevoMapeo.Origen = unaPropiedadEnElOrigen
+        elNuevoMapeo.Destino = laPropiedadEnElDestino
+        losMapeos.Add(elNuevoMapeo)
+    End Sub
+
+    Sub RegistreUnMapeoPersonalizado(elMapeo As MapeoPersonalizado)
+        losMapeosPersonalizados.Add(elMapeo)
+    End Sub
+
     Dim elObjetoDestino As ClaseDestino
     Function Mapee(eOobjetoOrigen As ClaseOrigen) As ClaseDestino
         Me.elobjetoOrigen = eOobjetoOrigen
@@ -19,14 +31,6 @@
 
         Return elObjetoDestino
     End Function
-
-    Sub RegistreUnNuevoMapeo(unaPropiedadEnElOrigen As Propiedad,
-                             laPropiedadEnElDestino As Propiedad)
-        Dim elNuevoMapeo As New MapeoDePropiedad(Of ClaseOrigen, ClaseDestino)
-        elNuevoMapeo.Origen = unaPropiedadEnElOrigen
-        elNuevoMapeo.Destino = laPropiedadEnElDestino
-        losMapeos.Add(elNuevoMapeo)
-    End Sub
 
     Private Sub CreeElObjetoDestino()
         elObjetoDestino = Activator.CreateInstance(Of ClaseDestino)()
@@ -39,10 +43,6 @@
             elMapeadorPorPropiedad.MapeeDelOrigenAlDestino(mapeo.Origen.Nombre,
                                                            mapeo.Destino.Nombre)
         Next
-    End Sub
-
-    Sub RegistreUnMapeoPersonalizado(elMapeo As MapeoPersonalizado)
-        losMapeosPersonalizados.Add(elMapeo)
     End Sub
 
     Private Sub MapeeCadaPropiedadPersonalizada()
