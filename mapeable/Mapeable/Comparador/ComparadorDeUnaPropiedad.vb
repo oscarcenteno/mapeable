@@ -22,7 +22,7 @@ Public Class ComparadorDeUnaPropiedad
         Return esIgual
     End Function
 
-    Dim losAtributos As BindingFlags = BindingFlags.Instance Or BindingFlags.Public
+    Const losAtributos As BindingFlags = BindingFlags.Instance Or BindingFlags.Public
     Private Sub ObtengaLaPropiedadQueSeComparara(unaPropiedad As Propiedad)
         Dim elTipoDelOrigen As Type = esteObjeto.GetType()
         laPropiedadOrigen = elTipoDelOrigen.GetProperty(unaPropiedad.Nombre,
@@ -32,7 +32,6 @@ Public Class ComparadorDeUnaPropiedad
     Dim elValor As Object
     Dim elOtroValor As Object
     Private Sub ObtengaElValorDeUnObjeto()
-        elValor = laPropiedadOrigen.GetValue(esteObjeto, Nothing)
     End Sub
 
     Private Sub ObtengaElValorDelOtroObjeto()

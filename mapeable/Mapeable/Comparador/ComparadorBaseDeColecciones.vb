@@ -2,14 +2,6 @@
 Class ComparadorBaseDeColecciones
 
     Dim sonIguales As Boolean
-
-    Dim noHayNulos As Boolean
-    Dim losTiposSonIguales As Boolean
-    Dim susTamanosSonIguales As Boolean
-
-    Dim elTipodeEstaColeccion As Type
-    Dim elTipoDeLaOtraColeccion As Type
-
     Dim estaColeccion As IEnumerable(Of Object)
     Dim laOtraColeccion As IEnumerable(Of Object)
 
@@ -18,36 +10,20 @@ Class ComparadorBaseDeColecciones
         Me.estaColeccion = estaColeccion
         Me.laOtraColeccion = laOtraColeccion
 
-        CompareEnCasoDeNulos()
-        ComparePorSusTipos()
-        ComparePorSusTamanos()
-        ComparePorSusElementos()
+        CompareSiSonNulos()
+        CompareLasColecciones()
 
         Return sonIguales
     End Function
 
-    Private Sub CompareEnCasoDeNulos()
+    Private Sub CompareSiSonNulos()
         If estaColeccion Is Nothing And laOtraColeccion Is Nothing Then
             sonIguales = True
-            noHayNulos = False
-        ElseIf estaColeccion Is Nothing Or laOtraColeccion Is Nothing Then
-            sonIguales = False
-            noHayNulos = False
-        Else
-            noHayNulos = True
         End If
     End Sub
 
-    Private Sub ComparePorSusTipos()
-        If noHayNulos Then
-            elTipodeEstaColeccion = estaColeccion.GetType
-            elTipoDeLaOtraColeccion = laOtraColeccion.GetType
-            losTiposSonIguales = Type.Equals(elTipodeEstaColeccion, elTipoDeLaOtraColeccion)
-        End If
-    End Sub
-
-    Private Sub ComparePorSusElementos()
-        If noHayNulos AndAlso losTiposSonIguales AndAlso susTamanosSonIguales Then
+    Private Sub CompareLasColecciones()
+        If NoHayNulos() AndAlso SusTiposSonIguales() AndAlso SusTamanosSonIguales() Then
 
             sonIguales = True
             For i As Integer = 0 To estaColeccion.Count - 1
@@ -64,19 +40,40 @@ Class ComparadorBaseDeColecciones
         End If
     End Sub
 
-    Private Sub ComparePorSusTamanos()
-        If noHayNulos And losTiposSonIguales Then
-            DestermineSiTienenElMismoTamano()
-        End If
-    End Sub
+    Private Function NoHayNulos() As Boolean
+        Dim hayNulos As Boolean
+        hayNulos = estaColeccion Is Nothing Or laOtraColeccion Is Nothing
+        Return Not hayNulos
+    End Function
 
-    Private Sub DestermineSiTienenElMismoTamano()
-        If estaColeccion.Count = laOtraColeccion.Count Then
-            susTamanosSonIguales = True
-        Else
-            susTamanosSonIguales = False
-            sonIguales = False
+    Private Function SusTiposSonIguales() As Boolean
+        Dim sonElMismoTipo As Boolean
+        If NoHayNulos() Then
+            Dim elTipodeEstaColeccion As Type
+            elTipodeEstaColeccion = estaColeccion.GetType
+            Dim elTipoDeLaOtraColeccion As Type
+            elTipoDeLaOtraColeccion = laOtraColeccion.GetType
+            sonElMismoTipo = Type.Equals(elTipodeEstaColeccion, elTipoDeLaOtraColeccion)
         End If
-    End Sub
+        Return sonElMismoTipo
+    End Function
+
+    Private Function SusTamanosSonIguales()
+        Dim tienenElMismoTamano As Boolean
+        If NoHayNulos() And SusTiposSonIguales() Then
+            tienenElMismoTamano = DetermineSiTienenElMismoTamano()
+        End If
+        Return tienenElMismoTamano
+    End Function
+
+    Private Function DetermineSiTienenElMismoTamano() As Boolean
+        Dim tienenElMismoTamano As Boolean
+        If estaColeccion.Count = laOtraColeccion.Count Then
+            tienenElMismoTamano = True
+        Else
+            tienenElMismoTamano = False
+        End If
+        Return tienenElMismoTamano
+    End Function
 
 End Class
