@@ -1,9 +1,9 @@
 ﻿
 Class ComparadorBase
 
-    Dim sonIguales As Boolean
-    Dim esteObjeto As Object
-    Dim elOtroObjeto As Object
+    Private sonIguales As Boolean
+    Private esteObjeto As Object
+    Private elOtroObjeto As Object
 
     Function EsIgualQue(esteObjeto As Object, elOtroObjeto As Object) As Boolean
         Me.esteObjeto = esteObjeto

@@ -10,7 +10,6 @@ Public Class ConfiguradorDeMapeoPersonalizado(Of ClaseDestino, TipoDeLaPropiedad
 
     Public Sub MapeaHacia(laPropiedadDestino As Expression(Of Func(Of ClaseDestino, 
                                                                    TipoDeLaPropiedad)))
-
         Dim elMiembroDeLaPropiedad = laPropiedadDestino.GetMember()
         elMapeo.LaPropiedadDestino = elMiembroDeLaPropiedad.Name
     End Sub

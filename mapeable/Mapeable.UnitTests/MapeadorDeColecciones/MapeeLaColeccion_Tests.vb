@@ -3,12 +3,12 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
 
 <TestClass()> Public Class MapeeLaColeccion_Tests
 
-    Dim elMapeador As MapeadorDeColecciones(Of Producto, ProductoDto)
-    Dim elResultadoEsperado As Boolean
-    Dim elResultadoObtenido As Boolean
-    Dim losProductos As IList(Of Producto)
-    Dim losObtenidos As IList(Of ProductoDto)
-    Dim losEsperados As IList(Of ProductoDto)
+    Private elMapeador As MapeadorDeColecciones(Of Producto, ProductoDto)
+    Private elResultadoEsperado As Boolean
+    Private elResultadoObtenido As Boolean
+    Private losProductos As IList(Of Producto)
+    Private losObtenidos As IList(Of ProductoDto)
+    Private losEsperados As IList(Of ProductoDto)
 
     <TestInitialize> Public Sub Inicialice()
         InicialiceElMapeador()
@@ -17,38 +17,6 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
         InicialiceLaColeccionEsperada()
         CreeLosEsperados()
     End Sub
-
-    <TestMethod()> Public Sub MapeeLaColeccion_EsNula_Vacia()
-        elResultadoEsperado = True
-
-        losEsperados = New List(Of ProductoDto)
-        losProductos = Nothing
-        losObtenidos = elMapeador.MapeeLaColeccion(losProductos)
-        elResultadoObtenido = losEsperados.EsIgualQueLaColeccion(losObtenidos)
-
-        Assert.AreEqual(elResultadoEsperado, elResultadoObtenido)
-    End Sub
-
-    <TestMethod()> Public Sub MapeeLaColeccion_EsVacia_Vacia()
-        elResultadoEsperado = True
-
-        losEsperados = New List(Of ProductoDto)
-        losProductos = New List(Of Producto)
-        losObtenidos = elMapeador.MapeeLaColeccion(losProductos)
-        elResultadoObtenido = losEsperados.EsIgualQueLaColeccion(losObtenidos)
-
-        Assert.AreEqual(elResultadoEsperado, elResultadoObtenido)
-    End Sub
-
-    <TestMethod()> Public Sub MapeeLaColeccion_TieneTresElementos_TresMapeados()
-        elResultadoEsperado = True
-
-        losObtenidos = elMapeador.MapeeLaColeccion(losProductos)
-        elResultadoObtenido = losEsperados.EsIgualQueLaColeccion(losObtenidos)
-
-        Assert.AreEqual(elResultadoEsperado, elResultadoObtenido)
-    End Sub
-
 
     Private Sub InicialiceLaColeccionDeProductos()
         losProductos = New List(Of Producto)
@@ -80,6 +48,37 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
                                                .Fecha = New Date(2018, 8, 8)})
         losEsperados.Add(New ProductoDto With {.Nombre = "N7",
                                                .Fecha = New Date(2017, 7, 7)})
+    End Sub
+
+    <TestMethod()> Public Sub MapeeLaColeccion_EsNula_Vacia()
+        elResultadoEsperado = True
+
+        losEsperados = New List(Of ProductoDto)
+        losProductos = Nothing
+        losObtenidos = elMapeador.MapeeLaColeccion(losProductos)
+        elResultadoObtenido = losEsperados.EsIgualQueLaColeccion(losObtenidos)
+
+        Assert.AreEqual(elResultadoEsperado, elResultadoObtenido)
+    End Sub
+
+    <TestMethod()> Public Sub MapeeLaColeccion_EsVacia_Vacia()
+        elResultadoEsperado = True
+
+        losEsperados = New List(Of ProductoDto)
+        losProductos = New List(Of Producto)
+        losObtenidos = elMapeador.MapeeLaColeccion(losProductos)
+        elResultadoObtenido = losEsperados.EsIgualQueLaColeccion(losObtenidos)
+
+        Assert.AreEqual(elResultadoEsperado, elResultadoObtenido)
+    End Sub
+
+    <TestMethod()> Public Sub MapeeLaColeccion_TieneTresElementos_TresMapeados()
+        elResultadoEsperado = True
+
+        losObtenidos = elMapeador.MapeeLaColeccion(losProductos)
+        elResultadoObtenido = losEsperados.EsIgualQueLaColeccion(losObtenidos)
+
+        Assert.AreEqual(elResultadoEsperado, elResultadoObtenido)
     End Sub
 
 End Class

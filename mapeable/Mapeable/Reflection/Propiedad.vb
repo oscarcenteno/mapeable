@@ -1,9 +1,10 @@
 ﻿Public Class Propiedad
 
-    Public Property Nombre As String
-    Public Property Tipo As String
+    Property Nombre As String
+    Property Tipo As Type
     Property SePuedeEscribir As Boolean
     Property SePuedeLeer As Boolean
+    Property TipoDeLaClase As Type
 
     Public Function EsIgualQue(otra As Propiedad) As Boolean
         Dim sonIguales As Boolean

@@ -23,9 +23,9 @@ Public Class MapeadorBase(Of ClaseOrigen, ClaseDestino)
         Return elConfigurador
     End Function
 
-    Public Function Mapee(objetoDeClaseOrigen As ClaseOrigen) As ClaseDestino
+    Public Function Mapee(elObjetoOrigen As ClaseOrigen) As ClaseDestino
         Dim elResultadoDelMapeo As ClaseDestino
-        elResultadoDelMapeo = elMapeador.Mapee(objetoDeClaseOrigen)
+        elResultadoDelMapeo = elMapeador.Mapee(elObjetoOrigen)
         Return elResultadoDelMapeo
     End Function
 

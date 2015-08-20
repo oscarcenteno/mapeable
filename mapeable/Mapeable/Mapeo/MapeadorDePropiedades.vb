@@ -2,7 +2,8 @@
 
     Private losMapeos As IList(Of MapeoDePropiedad(Of ClaseOrigen, ClaseDestino))
     Private losMapeosPersonalizados As IList(Of MapeoPersonalizado)
-    Private elobjetoOrigen As ClaseOrigen
+    Private elObjetoOrigen As ClaseOrigen
+    Private elObjetoDestino As ClaseDestino
 
     Sub New()
         losMapeos = New List(Of MapeoDePropiedad(Of ClaseOrigen, ClaseDestino))
@@ -21,9 +22,8 @@
         losMapeosPersonalizados.Add(elMapeo)
     End Sub
 
-    Dim elObjetoDestino As ClaseDestino
-    Function Mapee(eOobjetoOrigen As ClaseOrigen) As ClaseDestino
-        Me.elobjetoOrigen = eOobjetoOrigen
+    Function Mapee(elObjetoOrigen As ClaseOrigen) As ClaseDestino
+        Me.elObjetoOrigen = elObjetoOrigen
 
         CreeElObjetoDestino()
         MapeeCadaPropiedad()
@@ -37,7 +37,7 @@
     End Sub
 
     Private Sub MapeeCadaPropiedad()
-        Dim elMapeadorPorPropiedad As New AsignadorDePropiedades(elobjetoOrigen,
+        Dim elMapeadorPorPropiedad As New AsignadorDePropiedades(elObjetoOrigen,
                                                                  elObjetoDestino)
         For Each mapeo In losMapeos
             elMapeadorPorPropiedad.MapeeDelOrigenAlDestino(mapeo.Origen.Nombre,
@@ -47,7 +47,7 @@
 
     Private Sub MapeeCadaPropiedadPersonalizada()
         For Each elMapeo In losMapeosPersonalizados
-            Dim c As New ContextoDeUnaPropiedad(elobjetoOrigen, elMapeo)
+            Dim c As New ContextoDeUnaPropiedad(elObjetoOrigen, elMapeo)
             c.AsigneA(elObjetoDestino)
         Next
     End Sub

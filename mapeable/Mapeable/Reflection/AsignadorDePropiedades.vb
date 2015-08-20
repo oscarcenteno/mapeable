@@ -2,46 +2,39 @@
 
 Class AsignadorDePropiedades
 
-    Private elobjetoOrigen As Object
+    Private elObjetoOrigen As Object
     Private elObjetoDestino As Object
+    Private elValorPorMapear As Object
+
+    Const losFiltros = BindingFlags.Public Or BindingFlags.Instance
 
     Sub New(elobjetoOrigen As Object, elObjetoDestino As Object)
-        Me.elobjetoOrigen = elobjetoOrigen
+        Me.elObjetoOrigen = elobjetoOrigen
         Me.elObjetoDestino = elObjetoDestino
-
-        ObtengaElTipoOrigen()
-        ObtengaElTipoDestino()
     End Sub
 
-    Dim elTipoDelOrigen As Type
-    Private Sub ObtengaElTipoOrigen()
-        elTipoDelOrigen = elobjetoOrigen.GetType()
-    End Sub
-
-    Dim elTipoDelDestino As Type
-    Private Sub ObtengaElTipoDestino()
-        elTipoDelDestino = elObjetoDestino.GetType()
-    End Sub
-
-    Const losAtributos = BindingFlags.Public Or BindingFlags.Instance
-    Sub MapeeDelOrigenAlDestino(laPropiedadOrigen As String,
-                                laPropiedadDestino As String)
+    Sub MapeeDelOrigenAlDestino(laPropiedadOrigen As String, laPropiedadDestino As String)
         ObtengaElValorDe(laPropiedadOrigen)
         AsigneA(laPropiedadDestino)
     End Sub
 
-    Dim elValorPorMapear As Object
     Private Sub ObtengaElValorDe(laPropiedadOrigen As String)
         Dim laPropiedadOrigenCompleta As PropertyInfo
+
+        Dim elTipoDelOrigen As Type
+        elTipoDelOrigen = elObjetoOrigen.GetType()
         laPropiedadOrigenCompleta = elTipoDelOrigen.GetProperty(laPropiedadOrigen,
-                                                                losAtributos)
-        elValorPorMapear = laPropiedadOrigenCompleta.GetValue(elobjetoOrigen, Nothing)
+                                                                losFiltros)
+        elValorPorMapear = laPropiedadOrigenCompleta.GetValue(elObjetoOrigen, Nothing)
     End Sub
 
     Private Sub AsigneA(laPropiedadDestino As String)
+        Dim elTipoDelDestino As Type
+        elTipoDelDestino = elObjetoDestino.GetType()
+
         Dim laPropiedadDestinoCompleta As PropertyInfo
         laPropiedadDestinoCompleta = elTipoDelDestino.GetProperty(laPropiedadDestino,
-                                                                  losAtributos)
+                                                                  losFiltros)
         laPropiedadDestinoCompleta.SetValue(elObjetoDestino, elValorPorMapear, Nothing)
     End Sub
 

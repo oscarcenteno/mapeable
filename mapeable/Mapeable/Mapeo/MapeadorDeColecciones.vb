@@ -1,6 +1,7 @@
 ﻿Public Class MapeadorDeColecciones(Of ClaseOrigen, ClaseDestino)
 
     Private elMapeador As MapeadorBase(Of ClaseOrigen, ClaseDestino)
+
     Public Sub New()
         elMapeador = New MapeadorBase(Of ClaseOrigen, ClaseDestino)
     End Sub
@@ -9,13 +10,13 @@
         elMapeador = unMapeador
     End Sub
 
-    Public Function MapeeLaColeccion(listaDeObjetosOrigen As IEnumerable(Of ClaseOrigen)) _
+    Public Function MapeeLaColeccion(laListaOrigen As IEnumerable(Of ClaseOrigen)) _
         As IEnumerable(Of ClaseDestino)
 
         Dim elResultadoDelMapeo As New List(Of ClaseDestino)
 
-        If listaDeObjetosOrigen IsNot Nothing Then
-            For Each objeto In listaDeObjetosOrigen
+        If laListaOrigen IsNot Nothing Then
+            For Each objeto In laListaOrigen
                 Dim elobjetoDestino As ClaseDestino
                 elobjetoDestino = elMapeador.Mapee(objeto)
                 elResultadoDelMapeo.Add(elobjetoDestino)

@@ -1,9 +1,9 @@
 ﻿
 Class ComparadorBaseDeColecciones
 
-    Dim sonIguales As Boolean
-    Dim estaColeccion As IEnumerable(Of Object)
-    Dim laOtraColeccion As IEnumerable(Of Object)
+    Private sonIguales As Boolean
+    Private estaColeccion As IEnumerable(Of Object)
+    Private laOtraColeccion As IEnumerable(Of Object)
 
     Function EsIgualQueLaColeccion(estaColeccion As IEnumerable(Of Object),
                                    laOtraColeccion As IEnumerable(Of Object)) As Boolean

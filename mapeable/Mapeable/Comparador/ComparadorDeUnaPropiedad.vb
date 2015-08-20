@@ -2,81 +2,43 @@
 
 Public Class ComparadorDeUnaPropiedad
 
-    Private esteObjeto As Object
-    Private otroObjeto As Object
+    Private laPropiedadOrigen As PropertyInfo
+    Private elValor As Object
+    Private elOtroValor As Object
+    Private esIgual As Boolean
 
-    Sub New(esteObjeto As Object, otroObjeto As Object)
-        Me.esteObjeto = esteObjeto
-        Me.otroObjeto = otroObjeto
+    Sub New(laPropiedad As String, elTipoDeLaClase As Type)
+        Dim losFiltros As BindingFlags = BindingFlags.Instance Or BindingFlags.Public
+        laPropiedadOrigen = elTipoDeLaClase.GetProperty(laPropiedad, losFiltros)
     End Sub
 
-    Dim laPropiedadOrigen As PropertyInfo
-    Dim esIgual As Boolean
-    Function LaPropiedadEsIgual(unaPropiedad As Propiedad) As Boolean
-
-        ObtengaLaPropiedadQueSeComparara(unaPropiedad)
-        ObtengaElValorDeUnObjeto()
-        ObtengaElValorDelOtroObjeto()
+    Function LaPropiedadEsIgual(unObjeto As Object, otroObjeto As Object) As Boolean
+        ObtengaElValor(unObjeto)
+        ObtengaElOtroValor(otroObjeto)
         CompareLosValores()
 
         Return esIgual
     End Function
 
-    Const losAtributos As BindingFlags = BindingFlags.Instance Or BindingFlags.Public
-    Private Sub ObtengaLaPropiedadQueSeComparara(unaPropiedad As Propiedad)
-        Dim elTipoDelOrigen As Type = esteObjeto.GetType()
-        laPropiedadOrigen = elTipoDelOrigen.GetProperty(unaPropiedad.Nombre,
-                                                        losAtributos)
+    Private Sub ObtengaElOtroValor(unObjeto As Object)
+        elValor = laPropiedadOrigen.GetValue(unObjeto, Nothing)
     End Sub
 
-    Dim elValor As Object
-    Dim elOtroValor As Object
-    Private Sub ObtengaElValorDeUnObjeto()
-    End Sub
-
-    Private Sub ObtengaElValorDelOtroObjeto()
+    Private Sub ObtengaElValor(otroObjeto As Object)
         elOtroValor = laPropiedadOrigen.GetValue(otroObjeto, Nothing)
     End Sub
 
     Private Sub CompareLosValores()
-        ObtengaElTipoDeLaPropiedad()
+        Dim elTipo As Type
+        elTipo = laPropiedadOrigen.PropertyType
 
-        If LaPropiedadEsUnString() Then
-            CompareComoStrings()
-        ElseIf LaPropiedadEsUnaClase() Then
-            CompareComoObjetos()
+        If elTipo.Equals(GetType(String)) Then
+            esIgual = String.Equals(elValor, elOtroValor)
+        ElseIf elTipo.IsClass Then
+            Dim elComparador As New ComparadorBase()
+            esIgual = elComparador.EsIgualQue(elValor, elOtroValor)
         Else
-            CompareComoValoresPrimitivos()
+            esIgual = Object.Equals(elValor, elOtroValor)
         End If
-
     End Sub
-
-    Dim elTipoDeLaPropiedad As Type
-    Private Sub ObtengaElTipoDeLaPropiedad()
-        elTipoDeLaPropiedad = laPropiedadOrigen.PropertyType
-    End Sub
-
-    Private Function LaPropiedadEsUnString() As Boolean
-        Return elTipoDeLaPropiedad.FullName.Equals("System.String")
-    End Function
-
-    Private Sub CompareComoStrings()
-        esIgual = String.Equals(elValor, elOtroValor)
-    End Sub
-
-    Private Function LaPropiedadEsUnaClase() As Boolean
-        Return elTipoDeLaPropiedad.IsClass
-    End Function
-
-    Private Sub CompareComoObjetos()
-        Dim elComparador As New ComparadorBase()
-        esIgual = elComparador.EsIgualQue(elValor, elOtroValor)
-    End Sub
-
-    Private Sub CompareComoValoresPrimitivos()
-        esIgual = Object.Equals(elValor, elOtroValor)
-    End Sub
-
-
-
 End Class

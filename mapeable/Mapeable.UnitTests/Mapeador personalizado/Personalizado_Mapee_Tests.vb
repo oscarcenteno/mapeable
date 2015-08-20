@@ -1,15 +1,12 @@
-﻿Imports System.Text
-Imports Microsoft.VisualStudio.TestTools.UnitTesting
-
-Namespace MapeadorDeProductos
+﻿Namespace MapeadorDeProductos
 
     <TestClass()> Public Class Mapee_Tests
 
-        Dim elMapeador As MapeadorDeProductos
-        Dim elResultadoObtenido As ProductoDto
-        Dim elResultadoEsperado As ProductoDto
-        Dim origen As Producto
-        Dim elProveedor As Proveedor
+        Private elMapeador As MapeadorDeProductos
+        Private elResultadoObtenido As ProductoDto
+        Private elResultadoEsperado As ProductoDto
+        Private origen As Producto
+        Private elProveedor As Proveedor
 
         <TestInitialize> Public Sub Inicializar()
             InicialiceElEsperado()

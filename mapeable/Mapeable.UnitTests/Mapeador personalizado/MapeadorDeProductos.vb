@@ -5,11 +5,11 @@
 
         Public Sub New()
 
-            LaPropiedad(Function(origen) origen.IdProducto) _
-                .MapeaHacia(Function(destino) destino.Id)
+            LaPropiedad(Function(origen) origen.IdProducto).
+                MapeaHacia(Function(destino) destino.Id)
 
-            LaPropiedad(Function(origen) origen.ElProveedor.Nombre) _
-                .MapeaHacia(Function(destino) destino.NombreDelProveedor)
+            LaPropiedad(Function(origen) origen.ElProveedor.Nombre).
+                MapeaHacia(Function(destino) destino.NombreDelProveedor)
 
         End Sub
 

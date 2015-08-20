@@ -8,6 +8,7 @@ Public Class MapeoPersonalizado
     Public Sub New(elOrigen As Func(Of Object, Object))
         LaExpresionOrigen = elOrigen
     End Sub
+
     Public Shared Function Cree(Of ClaseOrigen, TipoDeLaPropiedad) _
         (laExpresion As Expression(Of Func(Of ClaseOrigen, TipoDeLaPropiedad))) _
         As MapeoPersonalizado

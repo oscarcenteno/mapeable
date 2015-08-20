@@ -2,12 +2,13 @@
 Public Class BuscadorDePropiedadesPublicas
 
     Private elTipo As Type
+    Dim losMiembrosPublicosDeInstancia() As MemberInfo
+    Private lasPropiedades As IList(Of Propiedad)
 
     Public Sub New(elTipo As Type)
         Me.elTipo = elTipo
     End Sub
 
-    Private lasPropiedades As IList(Of Propiedad)
     Public Function EncuentreLasPropiedadesPublicas() As IEnumerable(Of Propiedad)
         ObtengaLosMiembrosPublicosDeInstancia()
         EncuentreLosQueSonPropiedades()
@@ -15,15 +16,14 @@ Public Class BuscadorDePropiedadesPublicas
         Return lasPropiedades
     End Function
 
-    Dim miembrosPublicosDeInstancia() As MemberInfo
     Private Sub ObtengaLosMiembrosPublicosDeInstancia()
-        Dim publicosYDeInstancia = BindingFlags.Public Or BindingFlags.Instance
-        miembrosPublicosDeInstancia = elTipo.GetMembers(publicosYDeInstancia)
+        Dim losFiltros = BindingFlags.Public Or BindingFlags.Instance
+        losMiembrosPublicosDeInstancia = elTipo.GetMembers(losFiltros)
     End Sub
 
     Private Sub EncuentreLosQueSonPropiedades()
         InicialiceLaListaDePropiedades()
-        For Each miembro In miembrosPublicosDeInstancia
+        For Each miembro In losMiembrosPublicosDeInstancia
             RegistreElMiembroSiEsUnaPropiedad(miembro)
         Next
     End Sub
@@ -35,7 +35,7 @@ Public Class BuscadorDePropiedadesPublicas
     Private Sub RegistreLaPropiedad(unaPropiedad As PropertyInfo)
         Dim nuevaPropiedad As New Propiedad
         nuevaPropiedad.Nombre = unaPropiedad.Name
-        nuevaPropiedad.Tipo = unaPropiedad.PropertyType.Name
+        nuevaPropiedad.Tipo = unaPropiedad.PropertyType
         nuevaPropiedad.SePuedeEscribir = unaPropiedad.CanWrite
         nuevaPropiedad.SePuedeLeer = unaPropiedad.CanRead
         lasPropiedades.Add(nuevaPropiedad)

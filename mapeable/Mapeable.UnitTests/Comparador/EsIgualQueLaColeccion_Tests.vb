@@ -1,87 +1,16 @@
 ﻿<TestClass()> Public Class EsIgualQueLaColeccion_Tests
 
-    Dim elResultadoEsperado As Boolean
-    Dim elResultadoObtenido As Boolean
-
-    Dim unosProductos As IList(Of Producto)
-    Dim otrosProductos As IList(Of Producto)
-    Dim unosProveedores As IList(Of Proveedor)
+    Private elResultadoEsperado As Boolean
+    Private elResultadoObtenido As Boolean
+    Private unosProductos As IList(Of Producto)
+    Private otrosProductos As IList(Of Producto)
+    Private unosProveedores As IList(Of Proveedor)
 
     <TestInitialize> Public Sub Inicialice()
         InicialiceUnosProductos()
         InicialiceOtrosProductos()
         InicialiceUnosProveedores()
     End Sub
-
-    <TestMethod()> Public Sub EsIgualQueLaColeccion_AmbasSonNulas_Si()
-        elResultadoEsperado = True
-
-        unosProductos = Nothing
-        otrosProductos = Nothing
-        elResultadoObtenido = unosProductos.EsIgualQueLaColeccion(otrosProductos)
-
-        Assert.AreEqual(elResultadoEsperado, elResultadoObtenido)
-    End Sub
-
-    <TestMethod()> Public Sub EsIgualQueLaColeccion_UnosProductosEsNulo_No()
-        elResultadoEsperado = False
-
-        unosProductos = Nothing
-        elResultadoObtenido = unosProductos.EsIgualQueLaColeccion(otrosProductos)
-
-        Assert.AreEqual(elResultadoEsperado, elResultadoObtenido)
-    End Sub
-
-    <TestMethod()> Public Sub EsIgualQueLaColeccion_LosTiposSonDiferentes_No()
-        elResultadoEsperado = False
-
-        elResultadoObtenido = unosProductos.EsIgualQueLaColeccion(unosProveedores)
-
-        Assert.AreEqual(elResultadoEsperado, elResultadoObtenido)
-    End Sub
-
-
-    <TestMethod()> Public Sub EsIgualQueLaColeccion_LaOtraColeccionEsNula_No()
-        elResultadoEsperado = False
-        otrosProductos = Nothing
-        elResultadoObtenido = unosProductos.EsIgualQueLaColeccion(otrosProductos)
-
-        Assert.AreEqual(elResultadoEsperado, elResultadoObtenido)
-    End Sub
-
-    <TestMethod()> Public Sub EsIgualQueLaColeccion_TienenCantidadDeElementosDiferente_No()
-        elResultadoEsperado = False
-        unosProductos.Add(New Producto)
-        elResultadoObtenido = unosProductos.EsIgualQueLaColeccion(otrosProductos)
-
-        Assert.AreEqual(elResultadoEsperado, elResultadoObtenido)
-    End Sub
-
-    <TestMethod()> Public Sub EsIgualQueLaColeccion_LaColeccionesSonVacias_Si()
-        elResultadoEsperado = True
-        otrosProductos = New List(Of Producto)
-        unosProductos = New List(Of Producto)
-        elResultadoObtenido = unosProductos.EsIgualQueLaColeccion(otrosProductos)
-
-        Assert.AreEqual(elResultadoEsperado, elResultadoObtenido)
-    End Sub
-
-    <TestMethod()> Public Sub EsIgualQueLaColeccion_LosObjectosEnElMismoOrdenSonIguales_Si()
-        elResultadoEsperado = True
-        elResultadoObtenido = unosProductos.EsIgualQueLaColeccion(otrosProductos)
-
-        Assert.AreEqual(elResultadoEsperado, elResultadoObtenido)
-    End Sub
-
-    <TestMethod()> Public Sub EsIgualQueLaColeccion_UnObjetoEsDiferente_No()
-        elResultadoEsperado = False
-        unosProductos.Add(New Producto)
-        otrosProductos.Add(New Producto With {.IdProducto = 9900})
-        elResultadoObtenido = unosProductos.EsIgualQueLaColeccion(otrosProductos)
-
-        Assert.AreEqual(elResultadoEsperado, elResultadoObtenido)
-    End Sub
-
 
     Private Sub InicialiceUnProducto(id As Integer)
         Dim unProducto As New Producto
@@ -136,5 +65,74 @@
         InicialiceUnProveedor(44)
         InicialiceUnProveedor(66)
     End Sub
+
+    <TestMethod()> Public Sub EsIgualQueLaColeccion_AmbasSonNulas_Si()
+        elResultadoEsperado = True
+
+        unosProductos = Nothing
+        otrosProductos = Nothing
+        elResultadoObtenido = unosProductos.EsIgualQueLaColeccion(otrosProductos)
+
+        Assert.AreEqual(elResultadoEsperado, elResultadoObtenido)
+    End Sub
+
+    <TestMethod()> Public Sub EsIgualQueLaColeccion_UnosProductosEsNulo_No()
+        elResultadoEsperado = False
+
+        unosProductos = Nothing
+        elResultadoObtenido = unosProductos.EsIgualQueLaColeccion(otrosProductos)
+
+        Assert.AreEqual(elResultadoEsperado, elResultadoObtenido)
+    End Sub
+
+    <TestMethod()> Public Sub EsIgualQueLaColeccion_LosTiposSonDiferentes_No()
+        elResultadoEsperado = False
+
+        elResultadoObtenido = unosProductos.EsIgualQueLaColeccion(unosProveedores)
+
+        Assert.AreEqual(elResultadoEsperado, elResultadoObtenido)
+    End Sub
+
+    <TestMethod()> Public Sub EsIgualQueLaColeccion_LaOtraColeccionEsNula_No()
+        elResultadoEsperado = False
+        otrosProductos = Nothing
+        elResultadoObtenido = unosProductos.EsIgualQueLaColeccion(otrosProductos)
+
+        Assert.AreEqual(elResultadoEsperado, elResultadoObtenido)
+    End Sub
+
+    <TestMethod()> Public Sub EsIgualQueLaColeccion_TienenCantidadDeElementosDiferente_No()
+        elResultadoEsperado = False
+        unosProductos.Add(New Producto)
+        elResultadoObtenido = unosProductos.EsIgualQueLaColeccion(otrosProductos)
+
+        Assert.AreEqual(elResultadoEsperado, elResultadoObtenido)
+    End Sub
+
+    <TestMethod()> Public Sub EsIgualQueLaColeccion_LaColeccionesSonVacias_Si()
+        elResultadoEsperado = True
+        otrosProductos = New List(Of Producto)
+        unosProductos = New List(Of Producto)
+        elResultadoObtenido = unosProductos.EsIgualQueLaColeccion(otrosProductos)
+
+        Assert.AreEqual(elResultadoEsperado, elResultadoObtenido)
+    End Sub
+
+    <TestMethod()> Public Sub EsIgualQueLaColeccion_LosObjectosEnElMismoOrdenSonIguales_Si()
+        elResultadoEsperado = True
+        elResultadoObtenido = unosProductos.EsIgualQueLaColeccion(otrosProductos)
+
+        Assert.AreEqual(elResultadoEsperado, elResultadoObtenido)
+    End Sub
+
+    <TestMethod()> Public Sub EsIgualQueLaColeccion_UnObjetoEsDiferente_No()
+        elResultadoEsperado = False
+        unosProductos.Add(New Producto)
+        otrosProductos.Add(New Producto With {.IdProducto = 9900})
+        elResultadoObtenido = unosProductos.EsIgualQueLaColeccion(otrosProductos)
+
+        Assert.AreEqual(elResultadoEsperado, elResultadoObtenido)
+    End Sub
+
 
 End Class

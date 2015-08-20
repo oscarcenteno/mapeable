@@ -1,31 +1,33 @@
 ﻿Public Class ComparadorDePropiedades
 
-    Private esteObjeto As Object
-    Dim lasPropiedades As IEnumerable(Of Propiedad)
+    Private elObjeto As Object
+    Private lasPropiedades As IEnumerable(Of Propiedad)
 
-    Sub New(objetoBase As Object)
-        Me.esteObjeto = objetoBase
+    Sub New(elObjeto As Object)
+        Me.elObjeto = elObjeto
         ObtengaLasPropiedadesDelTipo()
     End Sub
 
-    Function DetermineSiEsIgualQue(otroObjeto As Object) As Boolean
-        Dim lasPropiedadesSonIguales As Boolean
-        lasPropiedadesSonIguales = True
-        Dim elComparador As New ComparadorDeUnaPropiedad(esteObjeto, otroObjeto)
-
-        For Each unaPropiedad In lasPropiedades
-            Dim laPropiedadEsIgual As Boolean
-            laPropiedadEsIgual = elComparador.LaPropiedadEsIgual(unaPropiedad)
-            lasPropiedadesSonIguales = lasPropiedadesSonIguales And laPropiedadEsIgual
-        Next
-
-        Return lasPropiedadesSonIguales
-    End Function
-
     Private Sub ObtengaLasPropiedadesDelTipo()
-        Dim elTipoDelOrigen As Type = esteObjeto.GetType()
-        Dim elBuscador As New BuscadorDePropiedadesLegibles(elTipoDelOrigen)
+        Dim elBuscador As New BuscadorDePropiedadesLegibles(elObjeto.GetType)
         lasPropiedades = elBuscador.EncuentreLasPropiedadesLegibles()
     End Sub
+
+    Function DetermineSiEsIgualQue(otroObjeto As Object) As Boolean
+        Dim todasSonIguales As Boolean
+        todasSonIguales = True
+
+        For Each unaPropiedad In lasPropiedades
+            Dim esIgual As Boolean
+            Dim elNombre As String
+            elNombre = unaPropiedad.Nombre
+
+            Dim elComparador As New ComparadorDeUnaPropiedad(elNombre, elObjeto.GetType)
+            esIgual = elComparador.LaPropiedadEsIgual(elObjeto, otroObjeto)
+            todasSonIguales = todasSonIguales And esIgual
+        Next
+
+        Return todasSonIguales
+    End Function
 
 End Class
