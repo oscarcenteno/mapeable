@@ -76,7 +76,7 @@
     <Compile Include="Reflection\AsignadorDePropiedades.vb" />
     <Compile Include="Reflection\BuscadorDePropiedadesLegibles.vb" />
     <Compile Include="Reflection\Propiedad.vb" />
-    <Compile Include="Mapeo\MapeadorBase.vb" />
+    <Compile Include="Mapeo\Mapeador.vb" />
     <Compile Include="Mapeo\MapeadorDePropiedades.vb" />
     <Compile Include="Mapeo\MapeoDePropiedad.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />

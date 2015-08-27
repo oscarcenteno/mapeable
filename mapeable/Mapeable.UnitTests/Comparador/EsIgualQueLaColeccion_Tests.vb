@@ -1,4 +1,5 @@
-﻿<TestClass()> Public Class EsIgualQueLaColeccion_Tests
+﻿<TestClass()>
+Public Class EsIgualQueLaColeccion_Tests
 
     Private elResultadoEsperado As Boolean
     Private elResultadoObtenido As Boolean

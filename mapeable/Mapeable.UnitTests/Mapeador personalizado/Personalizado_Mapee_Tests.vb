@@ -1,5 +1,4 @@
 ﻿Namespace MapeadorDeProductos
-
     <TestClass()> Public Class Mapee_Tests
 
         Private elMapeador As MapeadorDeProductos
@@ -50,5 +49,4 @@
         End Sub
 
     End Class
-
 End Namespace

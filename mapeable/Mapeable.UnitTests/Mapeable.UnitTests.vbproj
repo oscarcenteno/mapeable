@@ -89,7 +89,7 @@
     <Compile Include="Tipos\ProductoDto.vb" />
     <Compile Include="Tipos\Proveedor.vb" />
     <Compile Include="Tipos\Producto.vb" />
-    <Compile Include="MapeadorBase\Mapee_Tests.vb" />
+    <Compile Include="Mapeador\Mapee_Tests.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>

@@ -1,7 +1,5 @@
-﻿Imports System.Text
-Imports Microsoft.VisualStudio.TestTools.UnitTesting
-
-<TestClass()> Public Class MapeeLaColeccion_Tests
+﻿<TestClass()>
+Public Class MapeeLaColeccion_Tests
 
     Private elMapeador As MapeadorDeColecciones(Of Producto, ProductoDto)
     Private elResultadoEsperado As Boolean

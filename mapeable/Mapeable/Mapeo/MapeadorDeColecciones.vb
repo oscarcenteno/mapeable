@@ -1,12 +1,12 @@
 ﻿Public Class MapeadorDeColecciones(Of ClaseOrigen, ClaseDestino)
 
-    Private elMapeador As MapeadorBase(Of ClaseOrigen, ClaseDestino)
+    Private elMapeador As Mapeador(Of ClaseOrigen, ClaseDestino)
 
     Public Sub New()
-        elMapeador = New MapeadorBase(Of ClaseOrigen, ClaseDestino)
+        elMapeador = New Mapeador(Of ClaseOrigen, ClaseDestino)
     End Sub
 
-    Public Sub New(unMapeador As MapeadorBase(Of ClaseOrigen, ClaseDestino))
+    Public Sub New(unMapeador As Mapeador(Of ClaseOrigen, ClaseDestino))
         elMapeador = unMapeador
     End Sub
 

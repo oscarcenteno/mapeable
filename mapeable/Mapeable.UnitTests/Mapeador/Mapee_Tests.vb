@@ -1,9 +1,6 @@
-﻿Imports System.Text
-Imports Microsoft.VisualStudio.TestTools.UnitTesting
+﻿<TestClass()> Public Class Mapee_Tests
 
-<TestClass()> Public Class Mapee_Tests
-
-    Private elMapeador As MapeadorBase(Of Producto, ProductoDto)
+    Private elMapeador As Mapeador(Of Producto, ProductoDto)
     Private elResultadoObtenido As ProductoDto
     Private elResultadoEsperado As ProductoDto
     Private origen As Producto
@@ -23,7 +20,7 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
     End Sub
 
     Private Sub InicialiceElMapeador()
-        elMapeador = New MapeadorBase(Of Producto, ProductoDto)
+        elMapeador = New Mapeador(Of Producto, ProductoDto)
     End Sub
 
     Private Sub InicialiceElOrigen()

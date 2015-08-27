@@ -1,6 +1,6 @@
 ﻿Imports System.Linq.Expressions
 
-Public Class MapeadorBase(Of ClaseOrigen, ClaseDestino)
+Public Class Mapeador(Of ClaseOrigen, ClaseDestino)
 
     Private elMapeador As MapeadorDePropiedades(Of ClaseOrigen, ClaseDestino)
 
@@ -16,9 +16,9 @@ Public Class MapeadorBase(Of ClaseOrigen, ClaseDestino)
         elMapeo = MapeoPersonalizado.Cree(laPropiedadOrigen)
         elMapeador.RegistreUnMapeoPersonalizado(elMapeo)
 
-        Dim elConfigurador As ConfiguradorDeMapeoPersonalizado(Of ClaseDestino, 
+        Dim elConfigurador As ConfiguradorDeMapeoPersonalizado(Of ClaseDestino,
                                                                TipoDeLaPropiedad)
-        elConfigurador = New ConfiguradorDeMapeoPersonalizado(Of ClaseDestino, 
+        elConfigurador = New ConfiguradorDeMapeoPersonalizado(Of ClaseDestino,
                                                               TipoDeLaPropiedad)(elMapeo)
         Return elConfigurador
     End Function
