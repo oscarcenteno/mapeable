@@ -1,6 +1,7 @@
 ﻿Imports System.Reflection
 
 Public Class ContextoDeUnaPropiedad
+
     Public Property elMapeo As MapeoPersonalizado
 
     Private Property laInstanciaOrigen As Object

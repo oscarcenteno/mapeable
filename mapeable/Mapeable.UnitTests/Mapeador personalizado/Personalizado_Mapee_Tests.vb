@@ -2,24 +2,15 @@
     <TestClass()> Public Class Mapee_Tests
 
         Private elMapeador As MapeadorDeProductos
-        Private elResultadoObtenido As ProductoDto
         Private elResultadoEsperado As ProductoDto
-        Private origen As Producto
+        Private elResultadoObtenido As ProductoDto
+        Private elOrigen As Producto
         Private elProveedor As Proveedor
 
-        <TestInitialize> Public Sub Inicializar()
-            InicialiceElEsperado()
+        <TestInitialize> Public Sub Inicialice()
             InicialiceElMapeador()
             InicialiceElOrigen()
             InicialiceElProveedor()
-        End Sub
-
-        Private Sub InicialiceElEsperado()
-            elResultadoEsperado = New ProductoDto
-            elResultadoEsperado.Id = 99
-            elResultadoEsperado.Nombre = "El Producto"
-            elResultadoEsperado.Fecha = New Date(2015, 12, 12)
-            elResultadoEsperado.NombreDelProveedor = "El Proveedor"
         End Sub
 
         Private Sub InicialiceElMapeador()
@@ -27,26 +18,36 @@
         End Sub
 
         Private Sub InicialiceElOrigen()
-            origen = New Producto
-            origen.IdProducto = 99
-            origen.Nombre = "El Producto"
-            origen.Fecha = New Date(2015, 12, 12)
+            elOrigen = New Producto
+            elOrigen.IdProducto = 99
+            elOrigen.Nombre = "El Producto"
+            elOrigen.Fecha = New Date(2015, 12, 12)
         End Sub
 
         Private Sub InicialiceElProveedor()
             elProveedor = New Proveedor
             elProveedor.Nombre = "El Proveedor"
-            origen.ElProveedor = elProveedor
+            elOrigen.ElProveedor = elProveedor
         End Sub
 
         <TestMethod()> Public Sub Mapee_PropiedadesPersonalizadas_DestinoEsperado()
-
+            elResultadoEsperado = CreeElEsperado()
 
             elMapeador = New MapeadorDeProductos
-            elResultadoObtenido = elMapeador.Mapee(origen)
+            elResultadoObtenido = elMapeador.Mapee(elOrigen)
 
             Assert.IsTrue(elResultadoEsperado.EsIgualQue(elResultadoObtenido))
         End Sub
+
+        Private Function CreeElEsperado() As ProductoDto
+            Dim elResultadoEsperado As New ProductoDto
+            elResultadoEsperado.Id = 99
+            elResultadoEsperado.Nombre = "El Producto"
+            elResultadoEsperado.Fecha = New Date(2015, 12, 12)
+            elResultadoEsperado.NombreDelProveedor = "El Proveedor"
+
+            Return elResultadoEsperado
+        End Function
 
     End Class
 End Namespace

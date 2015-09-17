@@ -31,7 +31,7 @@ Public Class Mapeador(Of ClaseOrigen, ClaseDestino)
 
     Private Sub EncuentreLosMapeosDePropiedadesPublicasEntreLasClases()
         Dim elBuscador As New BuscadorDeMapeos(Of ClaseOrigen, ClaseDestino)()
-        Me.elMapeador = elBuscador.EncuentreMapeos()
+        elMapeador = elBuscador.EncuentreMapeos()
     End Sub
 
 End Class
