@@ -1,22 +1,13 @@
 ﻿<TestClass()> Public Class Mapee_Tests
 
     Private elMapeador As Mapeador(Of Producto, ProductoDto)
+    Private elOrigen As Producto
     Private elResultadoObtenido As ProductoDto
     Private elResultadoEsperado As ProductoDto
-    Private origen As Producto
-    Private elProveedor As Proveedor
 
     <TestInitialize> Public Sub Inicializar()
-        InicialiceElEsperado()
         InicialiceElMapeador()
         InicialiceElOrigen()
-        InicialiceElProveedor()
-    End Sub
-
-    Private Sub InicialiceElEsperado()
-        elResultadoEsperado = New ProductoDto
-        elResultadoEsperado.Nombre = "El Producto"
-        elResultadoEsperado.Fecha = New Date(2015, 12, 12)
     End Sub
 
     Private Sub InicialiceElMapeador()
@@ -24,21 +15,26 @@
     End Sub
 
     Private Sub InicialiceElOrigen()
-        origen = New Producto
-        origen.Nombre = "El Producto"
-        origen.Fecha = New Date(2015, 12, 12)
-    End Sub
-
-    Private Sub InicialiceElProveedor()
-        elProveedor = New Proveedor
-        elProveedor.Nombre = "El Proveedor"
+        elOrigen = New Producto
+        elOrigen.Nombre = "El Producto"
+        elOrigen.Fecha = New Date(2015, 12, 12)
     End Sub
 
     <TestMethod()> Public Sub Mapee_PropiedadesUnoAUno_DestinoEsperado()
-        elResultadoObtenido = elMapeador.Mapee(origen)
+        elResultadoEsperado = InicialiceElEsperado()
+
+        elResultadoObtenido = elMapeador.Mapee(elOrigen)
 
         Assert.IsTrue(elResultadoEsperado.EsIgualQue(elResultadoObtenido))
     End Sub
+
+    Private Function InicialiceElEsperado() As ProductoDto
+        Dim elProducto As New ProductoDto
+        elProducto.Nombre = "El Producto"
+        elProducto.Fecha = New Date(2015, 12, 12)
+
+        Return elProducto
+    End Function
 
 End Class
 

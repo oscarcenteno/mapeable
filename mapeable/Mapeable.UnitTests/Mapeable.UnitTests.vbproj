@@ -82,17 +82,17 @@
     <Import Include="Microsoft.VisualStudio.TestTools.UnitTesting" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Comparador\EsIgualQueLaColeccion_Tests.vb" />
-    <Compile Include="Comparador\EsIgualQue_Tests.vb" />
-    <Compile Include="MapeadorDeColecciones\MapeeLaColeccion_Tests.vb" />
-    <Compile Include="Mapeador personalizado\MapeadorDeProductos.vb" />
-    <Compile Include="Mapeador personalizado\Personalizado_Mapee_Tests.vb" />
-    <Compile Include="MapeadorDeColecciones\Personalizado_MapeeLaColeccion_Tests.vb" />
-    <Compile Include="Tipos\TipoPorIgnorar.vb" />
-    <Compile Include="Tipos\ProductoDto.vb" />
-    <Compile Include="Tipos\Proveedor.vb" />
-    <Compile Include="Tipos\Producto.vb" />
-    <Compile Include="Mapeador\Mapee_Tests.vb" />
+    <Compile Include="Comparaciones\EsIgualQueLaColeccion_Tests.vb" />
+    <Compile Include="Comparaciones\EsIgualQue_Tests.vb" />
+    <Compile Include="Mapeo\MapeadorDeColecciones\MapeeLaColeccion_Tests.vb" />
+    <Compile Include="Mapeo\Mapeador personalizado\MapeadorDeProductos.vb" />
+    <Compile Include="Mapeo\Mapeador personalizado\Personalizado_Mapee_Tests.vb" />
+    <Compile Include="Mapeo\MapeadorDeColecciones\Personalizado_MapeeLaColeccion_Tests.vb" />
+    <Compile Include="Tipos usados en las pruebas\TipoPorIgnorar.vb" />
+    <Compile Include="Tipos usados en las pruebas\ProductoDto.vb" />
+    <Compile Include="Tipos usados en las pruebas\Proveedor.vb" />
+    <Compile Include="Tipos usados en las pruebas\Producto.vb" />
+    <Compile Include="Mapeo\Mapeador\Mapee_Tests.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>

@@ -10,7 +10,7 @@
         elMapeador = unMapeador
     End Sub
 
-    Public Function MapeeLaColeccion(laListaOrigen As IEnumerable(Of ClaseOrigen)) _
+    Public Function Mapee(laListaOrigen As IEnumerable(Of ClaseOrigen)) _
         As IEnumerable(Of ClaseDestino)
 
         Dim elResultadoDelMapeo As New List(Of ClaseDestino)

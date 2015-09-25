@@ -53,7 +53,7 @@ Public Class MapeeLaColeccion_Tests
 
         losEsperados = New List(Of ProductoDto)
         losProductos = Nothing
-        losObtenidos = elMapeador.MapeeLaColeccion(losProductos)
+        losObtenidos = elMapeador.Mapee(losProductos)
         elResultadoObtenido = losEsperados.EsIgualQueLaColeccion(losObtenidos)
 
         Assert.AreEqual(elResultadoEsperado, elResultadoObtenido)
@@ -64,7 +64,7 @@ Public Class MapeeLaColeccion_Tests
 
         losEsperados = New List(Of ProductoDto)
         losProductos = New List(Of Producto)
-        losObtenidos = elMapeador.MapeeLaColeccion(losProductos)
+        losObtenidos = elMapeador.Mapee(losProductos)
         elResultadoObtenido = losEsperados.EsIgualQueLaColeccion(losObtenidos)
 
         Assert.AreEqual(elResultadoEsperado, elResultadoObtenido)
@@ -73,7 +73,7 @@ Public Class MapeeLaColeccion_Tests
     <TestMethod()> Public Sub MapeeLaColeccion_TieneTresElementos_TresMapeados()
         elResultadoEsperado = True
 
-        losObtenidos = elMapeador.MapeeLaColeccion(losProductos)
+        losObtenidos = elMapeador.Mapee(losProductos)
         elResultadoObtenido = losEsperados.EsIgualQueLaColeccion(losObtenidos)
 
         Assert.AreEqual(elResultadoEsperado, elResultadoObtenido)
