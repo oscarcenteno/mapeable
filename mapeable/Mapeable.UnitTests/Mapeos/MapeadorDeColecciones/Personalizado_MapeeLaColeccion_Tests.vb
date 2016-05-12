@@ -1,4 +1,5 @@
 ﻿<TestClass()> Public Class Personalizado_MapeeLaColeccion_Tests
-    <TestMethod()> Public Sub TestMethod1()
+    <TestMethod()> Public Sub Pendiente()
+        Assert.Fail()
     End Sub
 End Class

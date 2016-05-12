@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Mapeable.ComparacionesParaPruebasUnitarias")]
-[assembly: AssemblyDescription("Comparaciones por propiedades para objetos y listas")]
+[assembly: AssemblyTitle("ComparacionesParaPruebasUnitarias")]
+[assembly: AssemblyDescription("Comparaciones por propiedades para objetos y listas para usar en las pruebas unitarias")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Oscar Centeno Rivera")]
-[assembly: AssemblyProduct("Mapeable.ComparacionesParaPruebasUnitarias")]
+[assembly: AssemblyProduct("ComparacionesParaPruebasUnitarias")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
