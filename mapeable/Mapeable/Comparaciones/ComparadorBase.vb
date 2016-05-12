@@ -1,54 +1,52 @@
-﻿
-Class ComparadorBase
-
-    Private sonIguales As Boolean
-    Private esteObjeto As Object
-    Private elOtroObjeto As Object
-
-    Function EsIgualQue(esteObjeto As Object, elOtroObjeto As Object) As Boolean
-        Me.esteObjeto = esteObjeto
-        Me.elOtroObjeto = elOtroObjeto
-
-        CompareSiSonNulos()
-        CompareSusPropiedadesYSusTipos()
-
-        Return sonIguales
-    End Function
-
-    Private Sub CompareSiSonNulos()
-        If esteObjeto Is Nothing And elOtroObjeto Is Nothing Then
-            sonIguales = True
+﻿Public Class ComparadorBase
+    Public Function EsIgualQue(unObjeto As Object, otroObjeto As Object) As Boolean
+        If AmbosSonNulos(unObjeto, otroObjeto) Then
+            Return True
+        Else
+            Return DetermineSiSonIgualesPorTipoYPropiedad(unObjeto, otroObjeto)
         End If
-    End Sub
-
-    Private Function LosTiposSonIguales() As Boolean
-        Dim elTipodeEste As Type
-        elTipodeEste = esteObjeto.GetType
-        Dim elTipoDelOtro As Type
-        elTipoDelOtro = elOtroObjeto.GetType
-
-        Dim sonElMismoTipo As Boolean
-        sonElMismoTipo = Type.Equals(elTipodeEste, elTipoDelOtro)
-
-        Return sonElMismoTipo
     End Function
 
-    Private Sub CompareSusPropiedadesYSusTipos()
-        If NoHayNulos() AndAlso LosTiposSonIguales() Then
-            AnaliceSiSusPropiedadesSonIguales()
+    Private Function DetermineSiSonIgualesPorTipoYPropiedad(unObjeto As Object, otroObjeto As Object) As Boolean
+        If NoHayNulos(unObjeto, otroObjeto) Then
+            Return DetermineSiSonIgualesPorTipo(unObjeto, otroObjeto)
+        Else
+            Return False
         End If
-    End Sub
-
-    Private Function NoHayNulos() As Boolean
-        Dim hayNulos As Boolean
-        hayNulos = esteObjeto Is Nothing Or elOtroObjeto Is Nothing
-
-        Return Not hayNulos
     End Function
 
-    Private Sub AnaliceSiSusPropiedadesSonIguales()
-        Dim elComparador As New ComparadorDePropiedades(esteObjeto)
-        sonIguales = elComparador.DetermineSiEsIgualQue(elOtroObjeto)
-    End Sub
+    Private Function DetermineSiSonIgualesPorTipo(unObjeto As Object, otroObjeto As Object) As Boolean
+        If TienenElMismoTipo(unObjeto, otroObjeto) Then
+            Return DetermineSiSusPropiedadesSonIguales(unObjeto, otroObjeto)
+        Else
+            Return False
+        End If
+    End Function
 
+    Private Shared Function AmbosSonNulos(unObjeto As Object, otroObjeto As Object) As Boolean
+        Return unObjeto Is Nothing And otroObjeto Is Nothing
+    End Function
+
+    Private Function TienenElMismoTipo(unObjeto As Object, otroObjeto As Object) As Boolean
+        Dim unTipo As Type = ObtengaElTipo(unObjeto)
+        Dim otroTipo As Type = ObtengaElTipo(otroObjeto)
+
+        Return SusTiposSonElMismo(unTipo, otroTipo)
+    End Function
+
+    Private Shared Function SusTiposSonElMismo(unTipo As Type, otroTipo As Type) As Boolean
+        Return Type.Equals(unTipo, otroTipo)
+    End Function
+
+    Private Shared Function ObtengaElTipo(unObjeto As Object) As Type
+        Return unObjeto.GetType
+    End Function
+
+    Private Function NoHayNulos(unObjeto As Object, otroObjeto As Object) As Boolean
+        Return Not (unObjeto Is Nothing Or otroObjeto Is Nothing)
+    End Function
+
+    Private Function DetermineSiSusPropiedadesSonIguales(unObjeto As Object, otroObjeto As Object) As Boolean
+        Return New ComparadorDePropiedades(unObjeto).DetermineSiEsIgualQue(otroObjeto)
+    End Function
 End Class

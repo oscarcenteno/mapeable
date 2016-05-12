@@ -1,4 +1,4 @@
-﻿Class ProductoDto
+﻿Class RegistroDeUnProducto
     Public Property Id As Integer
     Public Property Nombre As String
     Public Property Fecha As Date

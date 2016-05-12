@@ -1,4 +1,6 @@
-﻿Public Class ComparadorDePropiedades
+﻿Imports Mapeable.ManejoDePropiedades
+
+Public Class ComparadorDePropiedades
 
     Private elObjeto As Object
     Private lasPropiedades As IEnumerable(Of Propiedad)
@@ -29,5 +31,4 @@
 
         Return todasSonIguales
     End Function
-
 End Class

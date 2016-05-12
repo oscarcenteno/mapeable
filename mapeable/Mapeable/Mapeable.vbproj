@@ -10,7 +10,8 @@
     <AssemblyName>Mapeable</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>Windows</MyType>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -42,6 +43,9 @@
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -63,22 +67,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Comparaciones\ComparadorBaseDeColecciones.vb" />
-    <Compile Include="Mapeo\BuscadorDeMapeos.vb" />
+    <Compile Include="Mapeos\BuscadorDeMapeos.vb" />
     <Compile Include="Comparaciones\ComparadorBase.vb" />
     <Compile Include="Comparaciones\ComparadorDePropiedades.vb" />
     <Compile Include="Comparaciones\ComparadorDeUnaPropiedad.vb" />
-    <Compile Include="Comparaciones\Extensiones.vb" />
-    <Compile Include="Mapeo\ConfiguradorDeMapeoPersonalizado.vb" />
-    <Compile Include="Mapeo\ContextoDeUnaPropiedad.vb" />
-    <Compile Include="Mapeo\Extensiones.vb" />
-    <Compile Include="Mapeo\MapeadorDeColecciones.vb" />
-    <Compile Include="Mapeo\MapeoPersonalizado.vb" />
-    <Compile Include="Reflection\AsignadorDePropiedades.vb" />
-    <Compile Include="Reflection\BuscadorDePropiedadesLegibles.vb" />
+    <Compile Include="Mapeos\ConfiguradorDeMapeoPersonalizado.vb" />
+    <Compile Include="Mapeos\ContextoDeUnaPropiedad.vb" />
+    <Compile Include="Mapeos\Extensiones.vb" />
+    <Compile Include="MapeoDeColecciones.vb" />
+    <Compile Include="Mapeos\MapeoPersonalizado.vb" />
+    <Compile Include="Manejo de propiedades\AsignadorDePropiedades.vb" />
+    <Compile Include="Manejo de propiedades\BuscadorDePropiedadesLegibles.vb" />
     <Compile Include="Comparaciones\Propiedad.vb" />
-    <Compile Include="Mapeo\Mapeador.vb" />
-    <Compile Include="Mapeo\MapeadorDePropiedades.vb" />
-    <Compile Include="Mapeo\MapeoDePropiedad.vb" />
+    <Compile Include="Mapeo.vb" />
+    <Compile Include="Mapeos\MapeadorDePropiedades.vb" />
+    <Compile Include="Mapeos\MapeoDePropiedad.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -94,8 +97,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Reflection\BuscadorDePropiedadesEscribibles.vb" />
-    <Compile Include="Reflection\BuscadorDePropiedadesPublicas.vb" />
+    <Compile Include="Manejo de propiedades\BuscadorDePropiedadesEscribibles.vb" />
+    <Compile Include="Manejo de propiedades\BuscadorDePropiedadesPublicas.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">

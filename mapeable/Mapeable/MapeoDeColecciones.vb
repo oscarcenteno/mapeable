@@ -1,18 +1,16 @@
-﻿Public Class MapeadorDeColecciones(Of ClaseOrigen, ClaseDestino)
+﻿Public Class MapeoDeColecciones(Of ClaseOrigen, ClaseDestino)
 
-    Private elMapeador As Mapeador(Of ClaseOrigen, ClaseDestino)
+    Private elMapeador As Mapeo(Of ClaseOrigen, ClaseDestino)
 
     Public Sub New()
-        elMapeador = New Mapeador(Of ClaseOrigen, ClaseDestino)
+        elMapeador = New Mapeo(Of ClaseOrigen, ClaseDestino)
     End Sub
 
-    Public Sub New(unMapeador As Mapeador(Of ClaseOrigen, ClaseDestino))
-        elMapeador = unMapeador
+    Public Sub New(elMapeadorPersonalizado As Mapeo(Of ClaseOrigen, ClaseDestino))
+        elMapeador = elMapeadorPersonalizado
     End Sub
 
-    Public Function Mapee(laListaOrigen As IEnumerable(Of ClaseOrigen)) _
-        As IEnumerable(Of ClaseDestino)
-
+    Public Function Mapee(laListaOrigen As IEnumerable(Of ClaseOrigen)) As IEnumerable(Of ClaseDestino)
         Dim elResultadoDelMapeo As New List(Of ClaseDestino)
 
         If laListaOrigen IsNot Nothing Then
@@ -25,5 +23,4 @@
 
         Return elResultadoDelMapeo
     End Function
-
 End Class

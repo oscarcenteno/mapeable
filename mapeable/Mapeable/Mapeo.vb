@@ -1,14 +1,14 @@
 ﻿Imports System.Linq.Expressions
+Imports Mapeable.Mapeos
 
-Public Class Mapeador(Of ClaseOrigen, ClaseDestino)
-
+Public Class Mapeo(Of ClaseOrigen, ClaseDestino)
     Private elMapeador As MapeadorDePropiedades(Of ClaseOrigen, ClaseDestino)
 
     Public Sub New()
         EncuentreLosMapeosDePropiedadesPublicasEntreLasClases()
     End Sub
 
-    Protected Function LaPropiedad(Of TipoDeLaPropiedad) _
+    Protected Function Desde(Of TipoDeLaPropiedad) _
         (laPropiedadOrigen As Expression(Of Func(Of ClaseOrigen, TipoDeLaPropiedad))) _
         As ConfiguradorDeMapeoPersonalizado(Of ClaseDestino, TipoDeLaPropiedad)
 

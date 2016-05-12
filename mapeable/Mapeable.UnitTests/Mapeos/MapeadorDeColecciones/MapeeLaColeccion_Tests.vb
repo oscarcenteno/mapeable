@@ -1,12 +1,13 @@
-﻿<TestClass()>
-Public Class MapeeLaColeccion_Tests
+﻿Imports ComparacionesParaPruebasUnitarias
 
-    Private elMapeador As MapeadorDeColecciones(Of Producto, ProductoDto)
+<TestClass()>
+Public Class MapeeLaColeccion_Tests
+    Private elMapeo As MapeoDeColecciones(Of Producto, RegistroDeUnProducto)
     Private elResultadoEsperado As Boolean
     Private elResultadoObtenido As Boolean
     Private losProductos As IList(Of Producto)
-    Private losObtenidos As IList(Of ProductoDto)
-    Private losEsperados As IList(Of ProductoDto)
+    Private losObtenidos As IList(Of RegistroDeUnProducto)
+    Private losEsperados As IList(Of RegistroDeUnProducto)
 
     <TestInitialize> Public Sub Inicialice()
         InicialiceElMapeador()
@@ -21,11 +22,11 @@ Public Class MapeeLaColeccion_Tests
     End Sub
 
     Private Sub InicialiceLaColeccionEsperada()
-        losEsperados = New List(Of ProductoDto)
+        losEsperados = New List(Of RegistroDeUnProducto)
     End Sub
 
     Private Sub InicialiceElMapeador()
-        elMapeador = New MapeadorDeColecciones(Of Producto, ProductoDto)
+        elMapeo = New MapeoDeColecciones(Of Producto, RegistroDeUnProducto)
     End Sub
 
     Private Sub CreeLosProductos()
@@ -39,44 +40,36 @@ Public Class MapeeLaColeccion_Tests
     End Sub
 
     Private Sub CreeLosEsperados()
-        losEsperados = New List(Of ProductoDto)
-        losEsperados.Add(New ProductoDto With {.Nombre = "N9",
+        losEsperados = New List(Of RegistroDeUnProducto)
+        losEsperados.Add(New RegistroDeUnProducto With {.Nombre = "N9",
                                                .Fecha = New Date(2019, 9, 9)})
-        losEsperados.Add(New ProductoDto With {.Nombre = "N8",
+        losEsperados.Add(New RegistroDeUnProducto With {.Nombre = "N8",
                                                .Fecha = New Date(2018, 8, 8)})
-        losEsperados.Add(New ProductoDto With {.Nombre = "N7",
+        losEsperados.Add(New RegistroDeUnProducto With {.Nombre = "N7",
                                                .Fecha = New Date(2017, 7, 7)})
     End Sub
 
     <TestMethod()> Public Sub MapeeLaColeccion_EsNula_Vacia()
-        elResultadoEsperado = True
+        losEsperados = New List(Of RegistroDeUnProducto)
 
-        losEsperados = New List(Of ProductoDto)
         losProductos = Nothing
-        losObtenidos = elMapeador.Mapee(losProductos)
-        elResultadoObtenido = losEsperados.EsIgualQueLaColeccion(losObtenidos)
+        losObtenidos = elMapeo.Mapee(losProductos)
 
-        Assert.AreEqual(elResultadoEsperado, elResultadoObtenido)
+        Verificacion.LasListasSonIguales(losEsperados, losObtenidos)
     End Sub
 
     <TestMethod()> Public Sub MapeeLaColeccion_EsVacia_Vacia()
-        elResultadoEsperado = True
+        losEsperados = New List(Of RegistroDeUnProducto)
 
-        losEsperados = New List(Of ProductoDto)
         losProductos = New List(Of Producto)
-        losObtenidos = elMapeador.Mapee(losProductos)
-        elResultadoObtenido = losEsperados.EsIgualQueLaColeccion(losObtenidos)
+        losObtenidos = elMapeo.Mapee(losProductos)
 
-        Assert.AreEqual(elResultadoEsperado, elResultadoObtenido)
+        Verificacion.LasListasSonIguales(losEsperados, losObtenidos)
     End Sub
 
     <TestMethod()> Public Sub MapeeLaColeccion_TieneTresElementos_TresMapeados()
-        elResultadoEsperado = True
+        losObtenidos = elMapeo.Mapee(losProductos)
 
-        losObtenidos = elMapeador.Mapee(losProductos)
-        elResultadoObtenido = losEsperados.EsIgualQueLaColeccion(losObtenidos)
-
-        Assert.AreEqual(elResultadoEsperado, elResultadoObtenido)
+        Verificacion.LasListasSonIguales(losEsperados, losObtenidos)
     End Sub
-
 End Class

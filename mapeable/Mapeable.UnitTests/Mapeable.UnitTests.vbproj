@@ -82,17 +82,17 @@
     <Import Include="Microsoft.VisualStudio.TestTools.UnitTesting" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Comparaciones\EsIgualQueLaColeccion_Tests.vb" />
-    <Compile Include="Comparaciones\EsIgualQue_Tests.vb" />
-    <Compile Include="Mapeo\MapeadorDeColecciones\MapeeLaColeccion_Tests.vb" />
-    <Compile Include="Mapeo\Mapeador personalizado\MapeadorDeProductos.vb" />
-    <Compile Include="Mapeo\Mapeador personalizado\Personalizado_Mapee_Tests.vb" />
-    <Compile Include="Mapeo\MapeadorDeColecciones\Personalizado_MapeeLaColeccion_Tests.vb" />
+    <Compile Include="Verificacion\LasListasSonIguales_Tests.vb" />
+    <Compile Include="Verificacion\SonIguales_Tests.vb" />
+    <Compile Include="Mapeos\MapeadorDeColecciones\MapeeLaColeccion_Tests.vb" />
+    <Compile Include="Mapeos\Mapeador personalizado\MapeadorDeProductos.vb" />
+    <Compile Include="Mapeos\Mapeador personalizado\Personalizado_Mapee_Tests.vb" />
+    <Compile Include="Mapeos\MapeadorDeColecciones\Personalizado_MapeeLaColeccion_Tests.vb" />
     <Compile Include="Tipos usados en las pruebas\TipoPorIgnorar.vb" />
-    <Compile Include="Tipos usados en las pruebas\ProductoDto.vb" />
+    <Compile Include="Tipos usados en las pruebas\RegistroDeUnProducto.vb" />
     <Compile Include="Tipos usados en las pruebas\Proveedor.vb" />
     <Compile Include="Tipos usados en las pruebas\Producto.vb" />
-    <Compile Include="Mapeo\Mapeador\Mapee_Tests.vb" />
+    <Compile Include="Mapeos\Mapeo\Mapee_Tests.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -129,6 +129,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Mapeable.ComparacionesParaPruebasUnitarias\ComparacionesParaPruebasUnitarias.csproj">
+      <Project>{17c9a65a-83bb-4c91-84b0-f5d8fe17f2dc}</Project>
+      <Name>ComparacionesParaPruebasUnitarias</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Mapeable\Mapeable.vbproj">
       <Project>{cc1ca7d2-2647-47c5-bbfa-f4836a4ded8f}</Project>
       <Name>Mapeable</Name>

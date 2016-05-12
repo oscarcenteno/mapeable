@@ -1,9 +1,11 @@
-﻿Namespace MapeadorDeProductos
-    <TestClass()> Public Class Mapee_Tests
+﻿Imports ComparacionesParaPruebasUnitarias
+Imports Mapeable.UnitTests.MapeadorDeProductos
 
-        Private elMapeador As MapeadorDeProductos
-        Private elResultadoEsperado As ProductoDto
-        Private elResultadoObtenido As ProductoDto
+Namespace MapeadorPersonalizado_Tests
+    <TestClass()> Public Class Mapee_Tests
+        Private elMapeo As MapeoDeProductos
+        Private elResultadoEsperado As RegistroDeUnProducto
+        Private elResultadoObtenido As RegistroDeUnProducto
         Private elOrigen As Producto
         Private elProveedor As Proveedor
 
@@ -14,7 +16,7 @@
         End Sub
 
         Private Sub InicialiceElMapeador()
-            elMapeador = New MapeadorDeProductos
+            elMapeo = New MapeoDeProductos
         End Sub
 
         Private Sub InicialiceElOrigen()
@@ -33,14 +35,14 @@
         <TestMethod()> Public Sub Mapee_PropiedadesPersonalizadas_DestinoEsperado()
             elResultadoEsperado = CreeElEsperado()
 
-            elMapeador = New MapeadorDeProductos
-            elResultadoObtenido = elMapeador.Mapee(elOrigen)
+            elMapeo = New MapeoDeProductos
+            elResultadoObtenido = elMapeo.Mapee(elOrigen)
 
-            Assert.IsTrue(elResultadoEsperado.EsIgualQue(elResultadoObtenido))
+            Verificacion.SonIguales(elResultadoEsperado, elResultadoObtenido)
         End Sub
 
-        Private Function CreeElEsperado() As ProductoDto
-            Dim elResultadoEsperado As New ProductoDto
+        Private Function CreeElEsperado() As RegistroDeUnProducto
+            Dim elResultadoEsperado As New RegistroDeUnProducto
             elResultadoEsperado.Id = 99
             elResultadoEsperado.Nombre = "El Producto"
             elResultadoEsperado.Fecha = New Date(2015, 12, 12)
@@ -48,6 +50,5 @@
 
             Return elResultadoEsperado
         End Function
-
     End Class
 End Namespace

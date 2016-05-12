@@ -1,11 +1,10 @@
-﻿
-Class ComparadorBaseDeColecciones
+﻿Public Class ComparadorBaseDeColecciones
 
     Private sonIguales As Boolean
     Private estaColeccion As IEnumerable(Of Object)
     Private laOtraColeccion As IEnumerable(Of Object)
 
-    Function EsIgualQueLaColeccion(estaColeccion As IEnumerable(Of Object),
+    Public Function EsIgualQueLaColeccion(estaColeccion As IEnumerable(Of Object),
                                    laOtraColeccion As IEnumerable(Of Object)) As Boolean
         Me.estaColeccion = estaColeccion
         Me.laOtraColeccion = laOtraColeccion
