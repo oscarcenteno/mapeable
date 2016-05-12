@@ -5,9 +5,9 @@ Public Class MapeeLaColeccion_Tests
     Private elMapeo As MapeoDeColecciones(Of Producto, RegistroDeUnProducto)
     Private elResultadoEsperado As Boolean
     Private elResultadoObtenido As Boolean
-    Private losProductos As IList(Of Producto)
-    Private losObtenidos As IList(Of RegistroDeUnProducto)
-    Private losEsperados As IList(Of RegistroDeUnProducto)
+    Private losProductos As List(Of Producto)
+    Private losObtenidos As List(Of RegistroDeUnProducto)
+    Private losEsperados As List(Of RegistroDeUnProducto)
 
     <TestInitialize> Public Sub Inicialice()
         InicialiceElMapeador()

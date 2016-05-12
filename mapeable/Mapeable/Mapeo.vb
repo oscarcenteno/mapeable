@@ -1,7 +1,7 @@
 ﻿Imports System.Linq.Expressions
 Imports Mapeable.Mapeos
 
-Public Class Mapeo(Of ClaseOrigen, ClaseDestino)
+Public Class Mapeo(Of ClaseOrigen, ClaseDestino As New)
     Private elMapeador As MapeadorDePropiedades(Of ClaseOrigen, ClaseDestino)
 
     Public Sub New()
@@ -24,9 +24,7 @@ Public Class Mapeo(Of ClaseOrigen, ClaseDestino)
     End Function
 
     Public Function Mapee(elObjetoOrigen As ClaseOrigen) As ClaseDestino
-        Dim elResultadoDelMapeo As ClaseDestino
-        elResultadoDelMapeo = elMapeador.Mapee(elObjetoOrigen)
-        Return elResultadoDelMapeo
+        Return elMapeador.Mapee(elObjetoOrigen)
     End Function
 
     Private Sub EncuentreLosMapeosDePropiedadesPublicasEntreLasClases()
