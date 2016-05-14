@@ -6,21 +6,21 @@ namespace ComparacionesParaPruebasUnitarias
 {
     public static class Verificacion
     {
-        public static void SonIguales(object elEsperado, object elObtenido)
+        public static void SonIguales(object elResultadoEsperado, object elResultadoObtenido)
         {
             ComparadorBase elComparador = new ComparadorBase();
-            if (!elComparador.EsIgualQue(elEsperado, elObtenido))
+            if (!elComparador.EsIgualQue(elResultadoEsperado, elResultadoObtenido))
             {
                 throw new AssertFailedException("Las propiedades son diferentes");
             }
         }
 
         public static void LasListasSonIguales(
-            IEnumerable<object> elEsperado, 
-            IEnumerable<object> elObtenido)
+            IEnumerable<object> elResultadoEsperado, 
+            IEnumerable<object> elResultadoObtenido)
         {
             ComparadorBaseDeColecciones elComparador = new ComparadorBaseDeColecciones();
-            if (!elComparador.EsIgualQueLaColeccion(elEsperado, elObtenido))
+            if (!elComparador.EsIgualQueLaColeccion(elResultadoEsperado, elResultadoObtenido))
             {
                 throw new AssertFailedException("Los elementos son diferentes");
             }
