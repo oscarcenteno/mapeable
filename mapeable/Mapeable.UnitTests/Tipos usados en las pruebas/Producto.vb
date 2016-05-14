@@ -1,4 +1,4 @@
-﻿Class Producto
+﻿Public Class Producto
     Public Property IdProducto As Integer
     Public Property Nombre As String
     Public Property Fecha As Date

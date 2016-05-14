@@ -2,7 +2,6 @@
 
 Namespace ManejoDePropiedades
     Class AsignadorDePropiedades
-
         Private elObjetoOrigen As Object
         Private elObjetoDestino As Object
         Private elValorPorMapear As Object

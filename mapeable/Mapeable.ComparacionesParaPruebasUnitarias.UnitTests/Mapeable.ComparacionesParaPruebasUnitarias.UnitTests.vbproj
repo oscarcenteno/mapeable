@@ -96,8 +96,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Verificacion\LasListasSonIguales_Tests.vb" />
-    <Compile Include="Verificacion\Producto.vb" />
-    <Compile Include="Verificacion\Proveedor.vb" />
     <Compile Include="Verificacion\SonIguales_Tests.vb" />
   </ItemGroup>
   <ItemGroup>
@@ -120,9 +118,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ComparacionesParaPruebasUnitarias\ComparacionesParaPruebasUnitarias.csproj">
+    <ProjectReference Include="..\Mapeable.ComparacionesParaPruebasUnitarias\Mapeable.ComparacionesParaPruebasUnitarias.csproj">
       <Project>{17c9a65a-83bb-4c91-84b0-f5d8fe17f2dc}</Project>
-      <Name>ComparacionesParaPruebasUnitarias</Name>
+      <Name>Mapeable.ComparacionesParaPruebasUnitarias</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mapeable.UnitTests\Mapeable.UnitTests.vbproj">
+      <Project>{e3dfc503-5c0f-4599-aa96-4f2516f5b651}</Project>
+      <Name>Mapeable.UnitTests</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

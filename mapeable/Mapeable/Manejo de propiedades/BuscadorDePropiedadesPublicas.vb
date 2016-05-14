@@ -1,8 +1,8 @@
 ﻿Imports System.Reflection
+Imports Mapeable.Comparaciones
 
 Namespace ManejoDePropiedades
     Public Class BuscadorDePropiedadesPublicas
-
         Private elTipo As Type
         Dim losMiembrosPublicosDeInstancia() As MemberInfo
         Private lasPropiedades As IList(Of Propiedad)

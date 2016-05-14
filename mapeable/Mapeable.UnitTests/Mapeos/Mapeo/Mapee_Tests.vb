@@ -1,4 +1,4 @@
-﻿Imports ComparacionesParaPruebasUnitarias
+﻿Imports Mapeable.ComparacionesParaPruebasUnitarias
 
 <TestClass()> Public Class Mapee_Tests
 

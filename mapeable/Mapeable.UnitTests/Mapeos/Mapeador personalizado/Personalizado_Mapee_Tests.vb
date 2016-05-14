@@ -1,4 +1,4 @@
-﻿Imports ComparacionesParaPruebasUnitarias
+﻿Imports Mapeable.ComparacionesParaPruebasUnitarias
 Imports Mapeable.UnitTests.MapeadorDeProductos
 
 Namespace MapeadorPersonalizado_Tests

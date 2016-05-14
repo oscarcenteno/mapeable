@@ -1,8 +1,8 @@
-﻿using Mapeable;
+﻿using Mapeable.Comparaciones;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 
-namespace ComparacionesParaPruebasUnitarias
+namespace Mapeable.ComparacionesParaPruebasUnitarias
 {
     public static class Verificacion
     {

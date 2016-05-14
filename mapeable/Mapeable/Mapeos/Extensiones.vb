@@ -4,7 +4,6 @@ Imports System.Reflection
 
 Namespace Mapeos
     Module ExtensionesDelComponente
-
         <Extension>
         Function TransformadaANoGenerica(Of T, TProperty) _
             (func As Func(Of T, TProperty)) _

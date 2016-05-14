@@ -1,8 +1,8 @@
-﻿Imports Mapeable.ManejoDePropiedades
+﻿Imports Mapeable.Comparaciones
+Imports Mapeable.ManejoDePropiedades
 
 Namespace Mapeos
     Class MapeadorDePropiedades(Of ClaseOrigen, ClaseDestino)
-
         Private losMapeos As IList(Of MapeoDePropiedad(Of ClaseOrigen, ClaseDestino))
         Private losMapeosPersonalizados As IList(Of MapeoPersonalizado)
         Private elObjetoOrigen As ClaseOrigen

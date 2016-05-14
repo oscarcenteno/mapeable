@@ -2,11 +2,10 @@
 
 Namespace Mapeos
     Public Class ContextoDeUnaPropiedad
-
-        Public Property elMapeo As MapeoPersonalizado
-
         Private Property laInstanciaOrigen As Object
         Private elContenedorDelValorDeLaPropiedad As Lazy(Of Object)
+
+        Public Property elMapeo As MapeoPersonalizado
 
         Public Sub New(laInstanciaOrigen As Object,
                        elMapeo As MapeoPersonalizado)

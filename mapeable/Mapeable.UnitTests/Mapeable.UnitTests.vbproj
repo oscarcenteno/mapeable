@@ -127,9 +127,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ComparacionesParaPruebasUnitarias\ComparacionesParaPruebasUnitarias.csproj">
+    <ProjectReference Include="..\Mapeable.ComparacionesParaPruebasUnitarias\Mapeable.ComparacionesParaPruebasUnitarias.csproj">
       <Project>{17c9a65a-83bb-4c91-84b0-f5d8fe17f2dc}</Project>
-      <Name>ComparacionesParaPruebasUnitarias</Name>
+      <Name>Mapeable.ComparacionesParaPruebasUnitarias</Name>
     </ProjectReference>
     <ProjectReference Include="..\Mapeable\Mapeable.vbproj">
       <Project>{cc1ca7d2-2647-47c5-bbfa-f4836a4ded8f}</Project>

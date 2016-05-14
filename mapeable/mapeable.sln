@@ -1,15 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Mapeable", "Mapeable\Mapeable.vbproj", "{CC1CA7D2-2647-47C5-BBFA-F4836A4DED8F}"
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Mapeable.UnitTests", "Mapeable.UnitTests\Mapeable.UnitTests.vbproj", "{E3DFC503-5C0F-4599-AA96-4F2516F5B651}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComparacionesParaPruebasUnitarias", "ComparacionesParaPruebasUnitarias\ComparacionesParaPruebasUnitarias.csproj", "{17C9A65A-83BB-4C91-84B0-F5D8FE17F2DC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mapeable.ComparacionesParaPruebasUnitarias", "Mapeable.ComparacionesParaPruebasUnitarias\Mapeable.ComparacionesParaPruebasUnitarias.csproj", "{17C9A65A-83BB-4C91-84B0-F5D8FE17F2DC}"
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ComparacionesParaPruebasUnitarias.UnitTests", "ComparacionesParaPruebasUnitarias.UnitTests\ComparacionesParaPruebasUnitarias.UnitTests.vbproj", "{BE9BE3C7-21C7-43E5-96A8-5CE748BDFD3F}"
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Mapeable.ComparacionesParaPruebasUnitarias.UnitTests", "Mapeable.ComparacionesParaPruebasUnitarias.UnitTests\Mapeable.ComparacionesParaPruebasUnitarias.UnitTests.vbproj", "{BE9BE3C7-21C7-43E5-96A8-5CE748BDFD3F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

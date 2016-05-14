@@ -7,8 +7,8 @@
     <ProjectGuid>{17C9A65A-83BB-4C91-84B0-F5D8FE17F2DC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ComparacionesParaPruebasUnitarias</RootNamespace>
-    <AssemblyName>ComparacionesParaPruebasUnitarias</AssemblyName>
+    <RootNamespace>Mapeable.ComparacionesParaPruebasUnitarias</RootNamespace>
+    <AssemblyName>Mapeable.ComparacionesParaPruebasUnitarias</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

@@ -1,4 +1,5 @@
-﻿Imports ComparacionesParaPruebasUnitarias
+﻿Imports Mapeable.ComparacionesParaPruebasUnitarias
+Imports Mapeable.UnitTests
 
 <TestClass()>
 Public Class LasListasSonIguales_Tests

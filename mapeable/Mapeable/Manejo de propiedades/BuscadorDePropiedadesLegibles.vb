@@ -1,4 +1,6 @@
-﻿Namespace ManejoDePropiedades
+﻿Imports Mapeable.Comparaciones
+
+Namespace ManejoDePropiedades
     Public Class BuscadorDePropiedadesLegibles
         Private elTipo As Type
         Private lasPropiedades As IEnumerable(Of Propiedad)
