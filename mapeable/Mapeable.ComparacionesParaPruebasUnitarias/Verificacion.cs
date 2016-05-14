@@ -1,4 +1,4 @@
-﻿using Mapeable.Comparaciones;
+﻿using Comparaciones;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 

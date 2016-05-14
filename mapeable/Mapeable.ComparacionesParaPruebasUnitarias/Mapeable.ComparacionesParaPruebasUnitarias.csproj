@@ -45,10 +45,25 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Mapeable\Mapeable.vbproj">
-      <Project>{cc1ca7d2-2647-47c5-bbfa-f4836a4ded8f}</Project>
-      <Name>Mapeable</Name>
-    </ProjectReference>
+    <Compile Include="Comparaciones\ComparadorBase.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Comparaciones\ComparadorBaseDeColecciones.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Comparaciones\ComparadorDePropiedades.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Comparaciones\ComparadorDeUnaPropiedad.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Manejo de propiedades\Propiedad.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Manejo de propiedades\BuscadorDePropiedadesLegibles.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Manejo de propiedades\BuscadorDePropiedadesPublicas.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

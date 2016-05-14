@@ -1,5 +1,4 @@
-﻿Imports Mapeable.Comparaciones
-Imports Mapeable.ManejoDePropiedades
+﻿Imports Mapeable.ManejoDePropiedades
 
 Namespace Mapeos
     Class MapeadorDePropiedades(Of ClaseOrigen, ClaseDestino)

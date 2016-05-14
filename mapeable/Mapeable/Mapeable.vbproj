@@ -66,11 +66,8 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Comparaciones\ComparadorBaseDeColecciones.vb" />
+    <Compile Include="Manejo de propiedades\Propiedad.vb" />
     <Compile Include="Mapeos\BuscadorDeMapeos.vb" />
-    <Compile Include="Comparaciones\ComparadorBase.vb" />
-    <Compile Include="Comparaciones\ComparadorDePropiedades.vb" />
-    <Compile Include="Comparaciones\ComparadorDeUnaPropiedad.vb" />
     <Compile Include="Mapeos\ConfiguradorDeMapeoPersonalizado.vb" />
     <Compile Include="Mapeos\ContextoDeUnaPropiedad.vb" />
     <Compile Include="Mapeos\Extensiones.vb" />
@@ -78,7 +75,6 @@
     <Compile Include="Mapeos\MapeoPersonalizado.vb" />
     <Compile Include="Manejo de propiedades\AsignadorDePropiedades.vb" />
     <Compile Include="Manejo de propiedades\BuscadorDePropiedadesLegibles.vb" />
-    <Compile Include="Comparaciones\Propiedad.vb" />
     <Compile Include="Mapeo.vb" />
     <Compile Include="Mapeos\MapeadorDePropiedades.vb" />
     <Compile Include="Mapeos\MapeoDePropiedad.vb" />

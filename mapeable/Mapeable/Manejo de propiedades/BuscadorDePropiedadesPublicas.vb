@@ -1,5 +1,4 @@
 ﻿Imports System.Reflection
-Imports Mapeable.Comparaciones
 
 Namespace ManejoDePropiedades
     Public Class BuscadorDePropiedadesPublicas
