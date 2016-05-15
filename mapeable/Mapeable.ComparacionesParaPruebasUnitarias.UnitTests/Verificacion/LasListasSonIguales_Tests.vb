@@ -5,9 +5,9 @@ Imports Mapeable.UnitTests
 Public Class LasListasSonIguales_Tests
     Private elResultadoEsperado As Boolean
     Private elResultadoObtenido As Boolean
-    Private unosProductos As IList(Of Producto)
-    Private otrosProductos As IList(Of Producto)
-    Private unosProveedores As IList(Of Proveedor)
+    Private unosProductos As List(Of Producto)
+    Private otrosProductos As List(Of Producto)
+    Private unosProveedores As List(Of Proveedor)
 
     <TestInitialize> Public Sub Inicialice()
         InicialiceUnosProductos()
@@ -117,5 +117,22 @@ Public Class LasListasSonIguales_Tests
         otrosProductos.Add(New Producto With {.IdProducto = 9900})
 
         Verificacion.LasListasSonIguales(unosProductos, otrosProductos)
+    End Sub
+
+    <TestMethod()> Public Sub LasListasSonIguales_UnaPropiedadEsUnaLista_Si()
+        Dim unRegistro As New RegistroDeEmision
+        Dim otroRegistro As New RegistroDeEmision
+
+        Dim unCertificado As New RegistroDeCertificado
+        unCertificado.Crl = "crl"
+        unCertificado.Sujeto = "sujeto"
+        unRegistro.RegistrosDeCertificados.Add(unCertificado)
+
+        Dim otroCertificado As New RegistroDeCertificado
+        otroCertificado.Crl = "crl"
+        otroCertificado.Sujeto = "sujeto"
+        otroRegistro.RegistrosDeCertificados.Add(otroCertificado)
+
+        Verificacion.SonIguales(unRegistro, otroRegistro)
     End Sub
 End Class

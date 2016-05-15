@@ -127,6 +127,10 @@
       <Name>Mapeable.UnitTests</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Verificacion\RegistroDeCertificado.vb" />
+    <Compile Include="Verificacion\RegistroDeEmision.vb" />
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
