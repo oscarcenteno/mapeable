@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("ComparacionesParaPruebasUnitarias")]
 [assembly: AssemblyDescription("Comparaciones por propiedades para objetos y listas para usar en las pruebas unitarias")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Oscar Centeno Rivera")]
+[assembly: AssemblyCompany("SoftwareMantenible.com")]
 [assembly: AssemblyProduct("ComparacionesParaPruebasUnitarias")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]

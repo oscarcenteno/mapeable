@@ -9,8 +9,8 @@ Imports System.Runtime.InteropServices
 ' Review the values of the assembly attributes
 
 <Assembly: AssemblyTitle("Mapeable")>
-<Assembly: AssemblyDescription("Mapeo de propiedades entre distintos objetos y listas")>
-<Assembly: AssemblyCompany("Oscar Centeno Rivera")>
+<Assembly: AssemblyDescription("Libreria sencilla para el mapeo de propiedades entre distintos objetos y listas.")>
+<Assembly: AssemblyCompany("SoftwareMantenible.com")>
 <Assembly: AssemblyProduct("Mapeable")>
 <Assembly: AssemblyCopyright("Copyright ©  2016")>
 <Assembly: AssemblyTrademark("")> 
